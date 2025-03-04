@@ -1,0 +1,18 @@
+domain: soundslocal.co.uk
+budgie_plugins:
+  - budgie.contrib.markdown
+  - budgie.contrib.statifiles
+  - budgie.contrib.icons
+  - budgie.contrib.sections
+  - budgie.contrib.grids
+  - budgie.contrib.cta
+
+frontend_packages:
+  - bootstrap
+  - bootstrap-icons
+  - imagesloaded
+
+menus:
+  main:
+    - path: /
+      text: Home

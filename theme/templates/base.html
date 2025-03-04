@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'scss/start.scss' %}">
+        <title>{% block seo_title %}{% endblock %}</title>
+        <link rel="icon" type="image/png" href="{% static 'favicon/favicon-96x96.png' %}" sizes="96x96">
+        <link rel="icon" type="image/svg+xml" href="{% static 'favicon/favicon.svg' %}">
+        <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+        <meta name="apple-mobile-web-app-title" content="Sounds Local">
+        <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    </head>
+    <body class="{% block body_classes %}{% endblock %}">
+        <header class="container">
+            <div class="show-flex flex-wrap justify-content-between align-items-center padding-y-3 margin-bottom-4">
+                <a href="/" class="show-flex align-items-center margin-end-tablet-auto link-body-emphasis text-decoration-none">
+                    <svg height="32" viewBox="0 0 302 308" version="1.1" xmlns="http://www.w3.org/2000/svg" class="margin-end-3"><path d="M170.513147,178.123509 C199.037862,152.43974 234.710859,146.120658 260.380893,174.630119 C284.239781,201.128098 283.923999,240.949371 260.857661,267.058598 C269.751714,254.04782 268.99567,236.218519 258.021546,224.03052 C245.137346,209.721167 220.539284,206.463329 206.174319,219.397601 C191.809355,232.331873 193.117209,256.560309 206.001408,270.869662 C216.832024,282.89828 234.167592,285.60319 247.951403,278.476899 C219.650261,297.89217 180.662534,293.826152 157.083763,267.639273 C131.413728,239.129812 141.988432,203.807278 170.513147,178.123509 Z M30.2729791,22.1647829 C87.3224091,-29.2027546 214.377447,18.901269 265.700563,75.901364 C312.939341,128.365342 312.765994,206.963902 267.954787,259.195504 C297.507501,220.70963 296.195505,165.220747 262.323095,127.601624 C224.161285,85.2186401 163.079748,88.1371818 121.010924,126.016121 C78.9420999,163.895061 71.8165959,222.390414 109.978406,264.773398 C143.098825,301.55735 196.464824,309.166987 237.488499,285.772865 C181.191812,322.061606 105.331981,313.25849 59.106302,261.919673 C7.78318597,204.919578 -26.7764509,73.5323204 30.2729791,22.1647829 Z" fill="#9E363F" transform="translate(151.0644, 154.0955) rotate(180) translate(-151.0644, -154.0955)"></path></svg>
+                    <span class="font-size-4">Sounds Local</span>
+                </a>
+
+                <button class="navbar-toggler show-block show-tablet-none" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list font-size-2"></i>
+                </button>
+
+                <div class="collapse show-tablet-block margin-top-2 margin-top-tablet-0" id="main-menu">
+                    <ul class="nav nav-pills">
+                        {% for item in MENUS.main %}
+                            <li class="nav-item">
+                                <a href="{{ item.url }}" class="nav-link{% if item.active %} active{% endif %}"{% if item.active %} aria-current="page"{% endif %}>{{ item.text }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <main>{% block body %}{% endblock %}</main>
+
+        <script src="{% static 'js/start.js' %}"></script>
+    </body>
+</html>

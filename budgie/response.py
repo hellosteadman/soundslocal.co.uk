@@ -1,0 +1,83 @@
+from mimetypes import guess_type
+from .templates import Template
+
+
+class Response(object):
+    def __init__(
+        self,
+        content: str,
+        content_type: str = 'text/html',
+        status_code: int = 200,
+        headers: dict = {}
+    ):
+        self.content = content
+        self.content_type = content_type
+        self.status_code = status_code
+        self.headers = {
+            'Content-Type': self.content_type,
+            **headers
+        }
+
+    @property
+    def body(self):
+        return self.content.encode('utf-8')
+
+
+class TemplateResponse(Response):
+    def __init__(
+        self,
+        template_names: [str],
+        context: dict = {},
+        content_type: str = 'text/html',
+        status_code: int = 200,
+        headers: dict = {}
+    ):
+        super().__init__(
+            '',
+            content_type=content_type,
+            status_code=status_code,
+            headers=headers
+        )
+
+        self.template_names = template_names
+        self.context = context
+
+    @property
+    def body(self):
+        template = Template(self.template_names)
+        html = template.render(self.context)
+        return html.encode('utf-8')
+
+
+class Response404(Response):
+    def __init__(self):
+        super().__init__(
+            content='<h1>Not found</h1>',
+            status_code=404
+        )
+
+
+class FileResponse(Response):
+    def __init__(
+        self,
+        filename: str,
+        status_code: int = 200,
+        headers: dict = {}
+    ):
+        content_type, encoding = guess_type(filename)
+        content_type_header = content_type
+
+        if encoding:
+            content_type_header += '; encoding=%s' % encoding
+
+        super().__init__(
+            '',
+            content_type=content_type_header,
+            headers=headers
+        )
+
+        self.__filename = filename
+
+    @property
+    def body(self):
+        return open(self.__filename, 'rb').read()

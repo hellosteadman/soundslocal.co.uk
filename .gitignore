@@ -1,0 +1,9 @@
+*.pyc
+.DS_Store
+/.direnv
+/.envrc
+/build
+/node_modules
+/package-lock.json
+/package.json
+__pycache__

@@ -43,6 +43,8 @@ I've been building websites since the turn of the century. I've worked as tech l
 
 Since going freelance in 2016, I've worked with BT Sport, the BBC, Amazon, Mozilla and more, lending my technical chops, training, and consultation.
 
+[cta "mailto:mark@soundslocal.co.uk"]Get in touch[/cta]
+
 === END SECTION ===
 
 === END BIO SECTION ===

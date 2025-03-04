@@ -20,7 +20,7 @@ def compile_js(start_file):
     if start_file not in cache['js']:
         output_filename = os.path.join(
             settings.BUILD_DIR,
-            'assets',
+            'static',
             'js',
             'site.{hash}.js'
         )
@@ -31,8 +31,8 @@ def compile_js(start_file):
             source_map=True
         )
 
-        print('-', 'assets/js/%s' % output_basename)
-        cache['js'][start_file] = '/assets/js/%s' % output_basename
+        print('-', 'static/js/%s' % output_basename)
+        cache['js'][start_file] = '/static/js/%s' % output_basename
 
     return cache['js'][start_file]
 
@@ -44,7 +44,7 @@ def compile_scss(start_file):
     if start_file not in cache['css']:
         output_filename = os.path.join(
             settings.BUILD_DIR,
-            'assets',
+            'static',
             'css',
             'site.{hash}.css'
         )
@@ -55,8 +55,8 @@ def compile_scss(start_file):
             source_map=True
         )
 
-        print('-', 'assets/css/%s' % output_basename)
-        cache['css'][start_file] = '/assets/css/%s' % output_basename
+        print('-', 'static/css/%s' % output_basename)
+        cache['css'][start_file] = '/static/css/%s' % output_basename
 
     return cache['css'][start_file]
 
@@ -90,7 +90,7 @@ def static(path):
         cache_file(filename)
         return app.build_absolute_uri(compile_scss(filename))
 
-    return app.build_absolute_uri('/assets/%s' % path)
+    return app.build_absolute_uri('/static/%s' % path)
 
 
 @app.route('static/js/*.js')
@@ -165,7 +165,7 @@ def copy_assets(root_dir=STATIC_DIR):
         basepath = fullpath[len(STATIC_DIR) + 1:]
         copydir = os.path.join(
             settings.BUILD_DIR,
-            'assets',
+            'static',
             os.path.split(basepath)[0]
         )
 
@@ -173,9 +173,9 @@ def copy_assets(root_dir=STATIC_DIR):
 
         copypath = os.path.join(
             settings.BUILD_DIR,
-            'assets',
+            'static',
             basepath
         )
 
         shutil.copyfile(fullpath, copypath)
-        print('-', 'assets/%s' % basepath)
+        print('-', 'static/%s' % basepath)

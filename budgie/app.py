@@ -4,11 +4,18 @@ from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
 from . import settings
 from .exceptions import ConfigError, NotFoundError
+import os
 
 
-class WatchdogHandler(FileSystemEventHandler):
+class ContentHandler(FileSystemEventHandler):
     def on_modified(self, event):
         filename = event.src_path[len(settings.CONTENT_DIR):]
+        app.emit('reload', [filename])
+
+
+class TemplateHandler(FileSystemEventHandler):
+    def on_modified(self, event):
+        filename = event.src_path[len(settings.THEME_DIR):]
         app.emit('reload', [filename])
 
 
@@ -38,11 +45,16 @@ class BudgieApp(object):
 
         self.context = context
 
-        event_handler = WatchdogHandler()
         observer = Observer()
         observer.schedule(
-            event_handler,
+            ContentHandler(),
             path=settings.CONTENT_DIR,
+            recursive=True
+        )
+
+        observer.schedule(
+            TemplateHandler(),
+            path=os.path.join(settings.THEME_DIR, 'templates'),
             recursive=True
         )
 

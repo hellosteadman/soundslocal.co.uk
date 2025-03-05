@@ -3,8 +3,11 @@ from budgie.contrib import nodejs
 from budgie.response import Response, FileResponse
 from glob import glob
 from tempfile import mkstemp
+from watchdog.events import FileSystemEventHandler
+from watchdog.observers import Observer
 import os
 import shutil
+import sys
 
 
 STATIC_DIR = os.path.join(settings.THEME_DIR, 'static')
@@ -179,3 +182,46 @@ def copy_assets(root_dir=STATIC_DIR):
 
         shutil.copyfile(fullpath, copypath)
         print('-', 'static/%s' % basepath)
+
+
+class WatchdogHandler(FileSystemEventHandler):
+    def on_modified(self, event):
+        if event.src_path.endswith('.js'):
+            if 'start' in cache.get('js', {}):
+                sys.stdout.write('Recompiling start.js...')
+                sys.stdout.flush()
+
+                handle, filename = mkstemp('.js')
+                os.close(handle)
+
+                nodejs.compile_js(
+                    os.path.join(STATIC_DIR, 'js', 'start.js'),
+                    filename
+                )
+
+                cache['js']['start'] = filename
+                sys.stdout.write(' Done\n')
+                return
+
+        if event.src_path.endswith('.scss'):
+            if 'start' in cache.get('css', {}):
+                sys.stdout.write('Recompiling start.scss...')
+                sys.stdout.flush()
+
+                handle, filename = mkstemp('.js')
+                os.close(handle)
+
+                nodejs.compile_scss(
+                    os.path.join(STATIC_DIR, 'scss', 'start.scss'),
+                    filename
+                )
+
+                cache['css']['start'] = filename
+                sys.stdout.write(' Done\n')
+                return
+
+
+event_handler = WatchdogHandler()
+observer = Observer()
+observer.schedule(event_handler, path=STATIC_DIR, recursive=True)
+observer.start()

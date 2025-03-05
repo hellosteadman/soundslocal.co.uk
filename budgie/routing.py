@@ -1,7 +1,7 @@
 from inspect import isfunction
 from .app import app
 from .exceptions import NotFoundError
-from .response import Response404
+from .response import Response404, ResponseRedirect
 from .views import View, IndexView
 import re
 
@@ -53,4 +53,7 @@ def match(request):
         raise NotFoundError()
 
     except NotFoundError:
+        if not request.path.endswith('/'):
+            return ResponseRedirect(request.path + '/')
+
         return Response404()

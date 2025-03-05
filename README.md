@@ -30,7 +30,7 @@ In an effort to make Budgie as flexible as possible, settings can be defined in 
 
 Running `python manage.py build` will build the site based on content in the `content` directory, and HTML, CSS, and JavaScript in the `theme` directory.
 
-The build process expects a `js/start.js` file and an `scss/start.scsss` file to be in the `theme` directory. You should be able to use ES6 syntax in any .js file imported by `start.js`, and likewise any SCSS imported via `start.sscs`. These files are compiled as part of the build process.
+The build process expects a `js/start.js` file and an `scss/start.scss` file to be in the `theme` directory. You should be able to use ES6 syntax in any .js file imported by `start.js`, and likewise any SCSS imported via `start.scss`. These files are compiled as part of the build process.
 
 ### A note on NodeJS requirements
 

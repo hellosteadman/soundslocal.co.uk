@@ -1,0 +1,15 @@
+body.page {
+    main {
+        position: relative;
+    }
+
+    .banner {
+        position: relative;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 36vh;
+        z-index: 1;
+        margin-bottom: -5rem;
+    }
+}

@@ -107,11 +107,3 @@ class ModelBase(object):
 
         self.body = app.transform('article_body', body)
         self.collection = collection
-
-
-class Page(ModelBase):
-    objects = Collection()
-
-
-class Post(ModelBase):
-    objects = Collection()

@@ -1,7 +1,7 @@
 from collections import defaultdict
 from importlib import import_module
 from . import settings
-from .exceptions import ConfigError
+from .exceptions import ConfigError, NotFoundError
 
 
 class BudgieApp(object):
@@ -15,6 +15,8 @@ class BudgieApp(object):
         self.cache = {}
 
     def start(self, context: str):
+        import_module('budgie.content.pages')
+
         if not self.domain:
             raise RuntimeError('Unable to determine website domain.')
 
@@ -56,11 +58,17 @@ class BudgieApp(object):
 
         return decorator
 
-    def route(self, path: str, name: str = ''):
+    def route(
+        self,
+        path: str,
+        name: str = '',
+        priority: int = 1
+    ):
         def decorator(func):
             from .routing import Route
+
             self.__routes.append(
-                Route(path, func, name)
+                Route(path, func, name, priority)
             )
 
             return func
@@ -94,8 +102,27 @@ class BudgieApp(object):
     def get_template_filters(self):
         return self.__filters
 
-    def get_routes(self):
-        return self.__routes
+    def match_route(self, request):
+        from .response import Response404, ResponseRedirect
+
+        routes = sorted(
+            self.__routes,
+            key=lambda r: r.priority
+        )
+
+        try:
+            for route in routes:
+                if match := route.match(request.path):
+                    args = match.groups()
+                    return route(request, *args)
+
+            raise NotFoundError()
+
+        except NotFoundError:
+            if not request.path.endswith('/'):
+                return ResponseRedirect(request.path + '/')
+
+            return Response404()
 
     def build_absolute_uri(self, path: str):
         if not path.startswith('/'):

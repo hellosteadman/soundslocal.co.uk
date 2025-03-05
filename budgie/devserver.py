@@ -3,8 +3,9 @@ from socketserver import TCPServer
 from urllib.parse import urlparse
 from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
+from . import logging
+from .app import app
 from .request import Request
-from . import logging, routing
 import click
 import os
 import sys
@@ -20,7 +21,7 @@ class Handler(SimpleHTTPRequestHandler):
         request = Request(path)
 
         try:
-            response = routing.match(request)
+            response = app.match_route(request)
             if response is None:
                 raise RuntimeError('View returned None instead of a Response')
 

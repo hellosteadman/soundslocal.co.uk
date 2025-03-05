@@ -1,5 +1,4 @@
 from .exceptions import ConfigError
-from .models import Page
 from .response import TemplateResponse
 
 
@@ -68,14 +67,4 @@ class ModelView(TemplateView):
         return {
             **super().get_render_context(),
             'object': self.get_object()
-        }
-
-
-class IndexView(ModelView):
-    template_name = 'index.html'
-    model = Page
-
-    def get_query_args(self):
-        return {
-            'slug': 'index'
         }

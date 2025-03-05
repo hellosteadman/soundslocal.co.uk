@@ -1,13 +1,16 @@
 from inspect import isfunction
-from .app import app
-from .exceptions import NotFoundError
-from .response import Response404, ResponseRedirect
-from .views import View, IndexView
+from .views import View
 import re
 
 
 class Route(object):
-    def __init__(self, path: str, view: View, name: str = ''):
+    def __init__(
+        self,
+        path: str,
+        view: View,
+        name: str = '',
+        priority: int = 1
+    ):
         self.path_ex = re.compile(
             '^/' + path.replace(
                 '.', '\\.'
@@ -23,6 +26,7 @@ class Route(object):
 
         self.view = view
         self.name = name
+        self.priority = priority
 
     def __call__(self, request, *args):
         if isfunction(self.view):
@@ -36,24 +40,3 @@ class Route(object):
 
     def match(self, path):
         return self.path_ex.match(path)
-
-
-routes = [
-    Route('', IndexView, 'index')
-]
-
-
-def match(request):
-    try:
-        for route in routes + app.get_routes():
-            if match := route.match(request.path):
-                args = match.groups()
-                return route(request, *args)
-
-        raise NotFoundError()
-
-    except NotFoundError:
-        if not request.path.endswith('/'):
-            return ResponseRedirect(request.path + '/')
-
-        return Response404()

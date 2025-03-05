@@ -2,7 +2,15 @@ from budgie import app, shortcodes
 
 
 def handle_shortcode(content, url, **kwargs):
-    classes = ['btn', 'btn-primary', 'btn-lg']
+    size = kwargs.get('size', 'lg')
+
+    if size == 'md':
+        size = ''   
+
+    classes = ['btn', 'btn-primary']
+
+    if size:
+        classes.append('btn-%s' % size)
 
     return '<p><a href="%s" class="%s">%s</a></p>' % (
         url,

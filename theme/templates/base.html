@@ -12,7 +12,7 @@
         <meta name="apple-mobile-web-app-title" content="Sounds Local">
         <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
     </head>
-    <body class="{% block body_classes %}{% endblock %}">
+    <body class="show-flex flex-column viewport-height-100 {% block body_classes %}{% endblock %}">
         <header class="container">
             <div class="show-flex flex-wrap justify-content-between align-items-center padding-y-3">
                 <a href="/" class="show-flex align-items-center margin-end-tablet-auto link-body-emphasis text-decoration-none">
@@ -36,9 +36,9 @@
             </div>
         </header>
 
-        <main>{% block body %}{% endblock %}</main>
+        <main class="margin-bottom-auto">{% block body %}{% endblock %}</main>
 
-        <footer class="background-white padding-bottom-3">
+        <footer class="background-white padding-y-3 margin-bottom-0">
             <div class="container text-muted">
                 <p>&copy; Sounds Local CIC</p>
             </div>

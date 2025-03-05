@@ -1,7 +1,7 @@
 domain: soundslocal.co.uk
 budgie_plugins:
   - budgie.contrib.markdown
-  - budgie.contrib.statifiles
+  - budgie.contrib.staticfiles
   - budgie.contrib.icons
   - budgie.contrib.sections
   - budgie.contrib.grids

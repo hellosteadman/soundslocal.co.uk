@@ -120,7 +120,7 @@ About text
 
 Unlike the Grids plugin, sections can be nested, although currently you can't indent them in your Markdown. I'd like that to change, for readability.
 
-### `budgie.contrib.statifiles`
+### `budgie.contrib.staticfiles`
 
 Handles serving static files via the dev server, and building them as part of the build process. This is also essential, so should be in settings.
 

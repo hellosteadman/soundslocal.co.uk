@@ -61,11 +61,13 @@ Sounds Local is a community interest company, meaning the profit it generates is
 
 === GRID OF 3 PROJECTS ===
 
-### 🎤 C90 Community Chorus
+### [🎤 C90 Community Chorus](/c90/)
 
 C90 is a singing group open to adults who want to come together and sing 90s songs for fun, to make new friends, and potentially to perform in low-stakes environments.
 
 No musical knowledge required.
+
+[cta "/c90/" size="md"]Find out more[/cta]
 
 ### 🙋🏼‍♂️ Hazelwell Men's Group
 

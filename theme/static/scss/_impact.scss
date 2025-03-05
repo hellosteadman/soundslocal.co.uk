@@ -20,5 +20,22 @@
         background: #E9E5F0;
         border-radius: $border-radius-sm;
         box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, .15);
+
+        h2, h3 {
+            a {
+                text-decoration: none;
+                color: $black;
+            }
+        }
+
+        p:has(a.btn) {
+            position: relative;
+            margin-bottom: -2rem;
+            text-align: center;
+        }
+
+        p a.btn {
+            border-radius: $border-radius-pill;
+        }
     }
 }

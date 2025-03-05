@@ -1,7 +1,15 @@
 from collections import defaultdict
 from importlib import import_module
+from watchdog.events import FileSystemEventHandler
+from watchdog.observers import Observer
 from . import settings
 from .exceptions import ConfigError, NotFoundError
+
+
+class WatchdogHandler(FileSystemEventHandler):
+    def on_modified(self, event):
+        filename = event.src_path[len(settings.CONTENT_DIR):]
+        app.emit('reload', [filename])
 
 
 class BudgieApp(object):
@@ -29,6 +37,16 @@ class BudgieApp(object):
             raise ConfigError('Invalid app context')
 
         self.context = context
+
+        event_handler = WatchdogHandler()
+        observer = Observer()
+        observer.schedule(
+            event_handler,
+            path=settings.CONTENT_DIR,
+            recursive=True
+        )
+
+        observer.start()
 
     def tag(self, name: str = ''):
         def decorator(func):

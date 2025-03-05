@@ -1,5 +1,6 @@
 from mimetypes import guess_type
 from .templates import Template
+import json
 
 
 class Response(object):
@@ -94,3 +95,23 @@ class FileResponse(Response):
     @property
     def body(self):
         return open(self.__filename, 'rb').read()
+
+
+class JsonResponse(Response):
+    def __init__(
+        self,
+        data: any,
+        status_code: int = 200,
+        headers: dict = {}
+    ):
+        super().__init__(
+            '',
+            content_type='application/json',
+            headers=headers
+        )
+
+        self.__data = data
+
+    @property
+    def body(self):
+        return json.dumps(self.__data).encode('utf-8')

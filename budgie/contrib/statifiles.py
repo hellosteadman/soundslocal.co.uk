@@ -201,6 +201,7 @@ class WatchdogHandler(FileSystemEventHandler):
 
                 cache['js']['start'] = filename
                 sys.stdout.write(' Done\n')
+                app.emit('reload', ['/static/start.js'])
                 return
 
         if event.src_path.endswith('.scss'):
@@ -218,6 +219,7 @@ class WatchdogHandler(FileSystemEventHandler):
 
                 cache['css']['start'] = filename
                 sys.stdout.write(' Done\n')
+                app.emit('reload', ['/static/start.scss'])
                 return
 
 

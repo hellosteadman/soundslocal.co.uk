@@ -82,9 +82,9 @@ class BudgieApp(object):
 
         return decorator
 
-    def emit(self, event_name: str, **kwargs):
+    def emit(self, event_name: str, *args, **kwargs):
         for callback in self.__callbacks[event_name]:
-            callback(**kwargs)
+            callback(*args, **kwargs)
 
     def transformer(self, transformer_name: str, ordering: int = 10):
         def decorator(func):

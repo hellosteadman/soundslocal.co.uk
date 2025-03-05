@@ -13,7 +13,10 @@ PROPERTIES = (
     'seo_title',
     'seo_description',
     'robots',
-    'lede'
+    'lede',
+    'banner',
+    'featured_image',
+    'thumbnail'
 )
 
 

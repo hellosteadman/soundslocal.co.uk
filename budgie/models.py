@@ -60,6 +60,9 @@ class ModelBase(object):
         in_content = False
         body = ''
 
+        for key in PROPERTIES:
+            setattr(self, key, None)
+
         with open(filename, 'r') as f:
             for line in f.readlines():
                 if not in_content:
@@ -72,7 +75,6 @@ class ModelBase(object):
                             self.tags = {
                                 tag.strip() for tag in value.split(',')
                             }
-
                         elif key in PROPERTIES:
                             setattr(self, key, value)
                         else:
@@ -96,13 +98,13 @@ class ModelBase(object):
             os.path.split(filename)[-1]
         )[0]
 
-        if not hasattr(self, 'title'):
-            if hasattr(self, 'heading'):
+        if not self.title:
+            if self.heading:
                 self.title = self.heading
             else:
                 self.title = self.slug.replace('-', ' ').capitalize()
 
-        if not hasattr(self, 'heading'):
+        if not self.heading:
             self.heading = self.title
 
         self.body = app.transform('article_body', body)

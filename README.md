@@ -52,16 +52,78 @@ It should trigger when content, templates, JS, or SCSS is changed. I'm sure ther
 
 ## Plugins
 
-There are currently 3 plugins (one of them is referenced by naother so doesn't need to be declared in settings):
+There are a number of plugins, some considered more important than others:
+
+### `budgie.contrib.cta`
+
+Turns markup like this:
+
+```md
+[cta url="/contact/"]Contact me[/cta]
+```
+
+Into HTML like this:
+
+```html
+<p><a href="/contact/" class="btn btn-primary btn-cta">Contact me</a></p>
+```
+
+### `budgie.contrib.grids`
+
+This allows for marking up sections of copy that should be displayed as a grid of items. You can mark up a grid like this:
+
+```md
+=== GRID OF 3 ITEMS ===
+
+### Item one
+
+Text
+
+### Item two
+
+Text
+
+### Item three
+
+Text
+
+=== END GRID OF 3 ITEMS ===
+
+```
+
+Using the word "items" is optional and arbitrary, and used to form the `class` attribute on grid elements (the grid itself, and each individual cell).
+
+Currently, grids can't be nested.
+
+### `budgie.contrib.icons`
+
+This plugin replaces `:icon:` syntax with an `<i>` element. It's assumed that Bootstrap Icons is the library, and anything in-between the colons is added to the class list, so `:emoji-smile:` becomes `<i class="bi bi-emoji-smile"></i>
+`.
 
 ### `budgie.contrib.markdown`
 
-Provides a `markdown` template filter.
+Provides a `markdown` template filter. This should definitely be included in `settings.yaml`.
+
+### `budgie.contrib.sections`
+
+Works similarly to `budgie.contrib.grids`, but takes any markup and wraps it in a `<div class="section">`.
+
+Similarly to the Grids plugin, you can define waht the section is, like this:
+
+```md
+=== ABOUT SECTION ===
+
+About text
+
+=== END ABOUT SECTION ===
+```
+
+Unlike the Grids plugin, sections can be nested, although currently you can't indent them in your Markdown. I'd like that to change, for readability.
+
+### `budgie.contrib.statifiles`
+
+Handles serving static files via the dev server, and building them as part of the build process. This is also essential, so should be in settings.
 
 ### `budgie.contrib.nodejs`
 
 Provides an interface into NodeJS, handling compilation of JS and SCSS files. This doesn't need to be declared in settings, as it's imported by other plugins.
-
-### `budgie.contrib.statifiles`
-
-Handles serving static files via the dev server, and building them as part of the build process.

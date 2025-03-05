@@ -6,6 +6,7 @@ from watchdog.observers import Observer
 from . import logging
 from .app import app
 from .request import Request
+from .response import JsonResponse
 import click
 import os
 import sys
@@ -22,6 +23,9 @@ HOT_RELOAD_JS = open(
 
 
 class Handler(SimpleHTTPRequestHandler):
+    def log_message(self, *args, **kwargs):
+        pass
+
     def do_GET(self):
         path = urlparse(self.path).path
 
@@ -79,6 +83,41 @@ class WatchdogHandler(FileSystemEventHandler):
 
 class DevServer(TCPServer):
     allow_reuse_address = True  # Ensures the port is freed immediately
+
+
+def post_message(**message):
+    messages = app.cache.get('reload_messages', [])
+    messages.append(message)
+    app.cache['reload_messages'] = messages
+
+
+@app.route('.well-known/reload-messages/')
+def reload_messages(request):
+    messages = reversed(
+        app.cache.get('reload_messages', [])
+    )
+
+    app.cache['reload_messages'] = []
+    return JsonResponse(list(messages))
+
+
+@app.on('reload')
+def hot_reload(files_changed=[]):
+    for filename in files_changed:
+        if filename.endswith('.js'):
+            post_message(action='reload', full=True)
+            continue
+
+        if filename.endswith('.scss'):
+            post_message(action='reload', css='/static/css/start.css')
+            continue
+
+        if filename.endswith('.md'):
+            post_message(action='reload', full=True)
+            continue
+
+        if filename.startswith('/templates/'):
+            post_message(action='reload', full=True)
 
 
 def run(host: str = 'localhost', port: int = 8000):

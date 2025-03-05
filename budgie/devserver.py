@@ -11,6 +11,16 @@ import os
 import sys
 
 
+WEBSOCKET_JS = open(
+    os.path.join(
+        os.path.dirname(__file__),
+        'fixtures',
+        'websocket.js'
+    ),
+    'r'
+).read()
+
+
 class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         path = urlparse(self.path).path
@@ -26,11 +36,29 @@ class Handler(SimpleHTTPRequestHandler):
                 raise RuntimeError('View returned None instead of a Response')
 
             self.send_response(response.status_code)
+            inject_websocket = False
+
             for header, value in response.headers.items():
+                if header.lower() == 'content-type':
+                    if 'text/html' in value:
+                        inject_websocket = True
                 self.send_header(header, value)
 
             self.end_headers()
-            self.wfile.write(response.body)
+
+            if inject_websocket:
+                body = response.body.decode('utf-8')
+                end_body = body.lower().find('</body>')
+
+                if end_body > -1:
+                    before_endbody = body[:end_body]
+                    after_endbody = body[end_body:]
+                    inject = '<script>%s</script>' % WEBSOCKET_JS
+                    body = before_endbody + inject + after_endbody
+
+                self.wfile.write(body.encode('utf-8'))
+            else:
+                self.wfile.write(response.body)
         except Exception as ex:
             self.send_response(500)
             self.send_header('Content-type', 'text/html')

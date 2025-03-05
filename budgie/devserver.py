@@ -13,6 +13,10 @@ import sys
 class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         path = urlparse(self.path).path
+
+        if not path.startswith('/'):
+            path = '/%s' % path
+
         request = Request(path)
 
         try:

@@ -9,7 +9,7 @@ import re
 class Route(object):
     def __init__(self, path: str, view: View, name: str = ''):
         self.path_ex = re.compile(
-            '^' + path.replace(
+            '^/' + path.replace(
                 '.', '\\.'
             ).replace(
                 '**', '<\\WILDCARD>'

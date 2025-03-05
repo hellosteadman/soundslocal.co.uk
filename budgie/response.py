@@ -57,6 +57,19 @@ class Response404(Response):
         )
 
 
+class ResponseRedirect(Response):
+    def __init__(self, url, permanent=False):
+        super().__init__(
+            content='<h1>%s</h1>' % (
+                permanent and 'Moved Permanently' or 'Found'
+            ),
+            status_code=permanent and 301 or 302,
+            headers={
+                'Location': url
+            }
+        )
+
+
 class FileResponse(Response):
     def __init__(
         self,

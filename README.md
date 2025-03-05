@@ -40,7 +40,15 @@ I've ignored `package.json` and `package-lock.json` in the repo as Budgie will t
 
 Running `python manage.py serve` will start the development server at `http://localhost:8000`. You can set the host and port to something differenet if you need to.
 
-The first time you access a JS or SCSS resource (as per the build section above), that respective file will be compiled. Right now it'll only compile the first time, so if you make changes to JS and/or SCSS, you'll need to restart the dev server. I might improve that in the future.
+The first time you access a JS or SCSS resource (as per the build section above), that respective file will be compiled. When the file changes, it's recompiled and a signal is sent to the browser to reload.
+
+### Hot reloading
+
+The server uses a cheap-and-cheerful way of handling hot-reload messages. Instead of using websockets (because your humble developer isn't up on async-await in Python like he is in Javascript), a cache of messages is saved in memory and accessed periodically by the browser.
+
+When a "reload" message is put on the stack, the browser either reloads the entire page or refreshes the CSS.
+
+It should trigger when content, templates, JS, or SCSS is changed. I'm sure there's room for improvement, but it works for my purposes.
 
 ## Plugins
 

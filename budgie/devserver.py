@@ -11,15 +11,6 @@ import sys
 
 
 class Handler(SimpleHTTPRequestHandler):
-    def translate_path_to_template(self, path):
-        if path.endswith('/'):
-            path += 'index.html'
-
-        while path.startswith('/'):
-            path = path[1:]
-
-        return path
-
     def do_GET(self):
         path = urlparse(self.path).path
         request = Request(path)

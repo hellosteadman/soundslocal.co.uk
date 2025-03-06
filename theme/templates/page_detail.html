@@ -3,23 +3,42 @@
 {% block body_classes %}page {{ object.slug }}-page{% endblock %}
 
 {% block body %}
-    {% if object.banner %}
-        <div class="banner" style="background-image: url('{{ object.banner.url() }}');"></div>
+    {% if object.featured_image %}
+        <header class="hero margin-bottom-n5">
+            <div class="container">
+                <h1 class="display-1">{{ object.heading }}</h1>
+
+                {% if object.lede %}
+                    <p class="display-3 font-weight-normal">{{ object.lede }}</p>
+                {% endif %}
+
+                {% if object.cta %}{{ object.cta }}{% endif %}
+            </div>
+        </header>
+
+        <img alt="" role="presentation" src="{{ object.featured_image.url() }}" class="featured img-fluid margin-top-n5">
+        <div class="background-light padding-y-5">
     {% endif %}
 
     <div class="container">
-        <div class="grid">
+        <article class="grid">
+            {% if not object.featured_image %}
+                <header class="hero">
+                    <h1 class="display-1">{{ object.heading }}</h1>
+
+                    {% if object.lede %}
+                        <p class="display-3 font-weight-normal">{{ object.lede }}</p>
+                    {% endif %}
+
+                    {% if object.cta %}{{ object.cta }}{% endif %}
+                </header>
+            {% endif %}
+
             <div class="cell-tablet-8">
-                {% if object.banner %}<div class="background-white padding-3 padding-tablet-4 position-relative z-2 margin-x-tablet-n4 margin-top-n4 rounded-3">{% endif %}
-                <h1>{{ object.heading }}</h1>
-
-                {% if object.lede %}
-                    <p class="lead">{{ object.lede }}</p>
-                {% endif %}
-
-                {{ object.body }}
-                {% if object.banner %}</div>{% endif %}
+                <section class="body">{{ object.body }}</section>
             </div>
-        </div>
+        </article>
     </div>
+
+    {% if object.featured_image %}</div>{% endif %}
 {% endblock body %}

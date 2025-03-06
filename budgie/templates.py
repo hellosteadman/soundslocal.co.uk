@@ -30,8 +30,6 @@ class ThemeLoader(BaseLoader):
 
 def TagExcension(tag_name, tag_func):
     class Extension(ExtensionBase):
-        tags = {tag_name}
-
         def parse(self, parser):
             lineno = next(parser.stream).lineno
             args = [parser.parse_expression()]
@@ -47,7 +45,19 @@ def TagExcension(tag_name, tag_func):
         def _render(self, *args, **kwargs):
             return tag_func(*args)
 
-    return Extension
+    class_name = '%sTagExtension' % tag_name.replace(
+        '_', ' '
+    ).title().replace(
+        ' ', ''
+    )
+
+    return type(
+        class_name,
+        (Extension,),
+        {
+            'tags': {tag_name}
+        }
+    )
 
 
 class Template(object):

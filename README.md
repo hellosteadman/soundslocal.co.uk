@@ -102,7 +102,11 @@ This plugin replaces `:icon:` syntax with an `<i>` element. It's assumed that Bo
 
 ### `budgie.contrib.markdown`
 
-Provides a `markdown` template filter. This should definitely be included in `settings.yaml`.
+Provides a `markdown` template filter. This should definitely be included in `settings.yaml`. This is automatically activated.
+
+### `budgie.contrib.media`
+
+Handles serving media files via the dev server, and building them as part of the build process. It parses Markdown image references and article properties, replacing the string path with a media `File` object. This is automatically activated.
 
 ### `budgie.contrib.sections`
 

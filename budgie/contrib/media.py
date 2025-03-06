@@ -77,6 +77,15 @@ class File(object):
         return '/media/%s' % self.__filename
 
 
+@app.transformer('article_schema')
+def transform_schema(schema):
+    schema['banner'] = None
+    schema['featured_image'] = None
+    schema['thumbnail'] = None
+
+    return schema
+
+
 @app.transformer('article_property', prop=('banner', 'featured_image', 'thumbnail'))  # NOQA
 def transform_property(value, prop):
     return File(value)

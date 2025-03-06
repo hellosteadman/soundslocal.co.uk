@@ -4,6 +4,8 @@ body.frontpage {
     .features-cell {
         margin-top: -3rem;
         margin-bottom: 6rem !important;
+        position: relative;
+        z-index: 4;
 
         h2, h3 {
             a {

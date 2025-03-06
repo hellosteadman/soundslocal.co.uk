@@ -62,7 +62,7 @@ class Handler(SimpleHTTPRequestHandler):
 
                 self.wfile.write(body.encode('utf-8'))
             else:
-                self.wfile.write(response.body)
+                response.output(self.wfile)
         except Exception as ex:
             self.send_response(500)
             self.send_header('Content-type', 'text/html')

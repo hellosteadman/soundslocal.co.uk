@@ -1,6 +1,8 @@
 from mimetypes import guess_type
 from .templates import Template
 import json
+import os
+import shutil
 
 
 class Response(object):
@@ -22,6 +24,9 @@ class Response(object):
     @property
     def body(self):
         return self.content.encode('utf-8')
+
+    def output(self, writer):
+        writer.write(self.body)
 
 
 class TemplateResponse(Response):
@@ -84,6 +89,7 @@ class FileResponse(Response):
         if encoding:
             content_type_header += '; encoding=%s' % encoding
 
+        headers['Content-Length'] = os.path.getsize(filename)
         super().__init__(
             '',
             content_type=content_type_header,
@@ -95,6 +101,10 @@ class FileResponse(Response):
     @property
     def body(self):
         return open(self.__filename, 'rb').read()
+
+    def output(self, writer):
+        with open(self.__filename, 'rb') as f:
+            shutil.copyfileobj(f, writer)
 
 
 class JsonResponse(Response):

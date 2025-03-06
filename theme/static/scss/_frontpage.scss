@@ -4,6 +4,13 @@ body.frontpage {
     .features-cell {
         margin-top: -3rem;
         margin-bottom: 6rem !important;
+
+        h2, h3 {
+            a {
+                text-decoration: none;
+                color: $accent;
+            }
+        }
     }
 
     .bio-section {

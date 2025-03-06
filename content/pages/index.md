@@ -5,7 +5,7 @@ lede: Sounds Local provides hassle-free digital services to good causes and puts
 
 === GRID OF 3 FEATURES ===
 
-### :globe: Websites
+### [:globe: Websites](/websites/)
 
 Hand-crafted WordPress, Wagtail, Ghost, or custom websites designed and built to order.
 

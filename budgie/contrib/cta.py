@@ -1,4 +1,40 @@
-from budgie import app, shortcodes
+from budgie import app, shortcodes, utils
+import regex
+
+
+LINK_TAG_EX = regex.compile(r'''
+    \[
+        (?P<text>(?:[^\]\\]|\\.)*)
+    \]                      # End text
+    \(                      # Opening parenthesis for URL and optional title
+        \s*
+        (?P<url>
+            (?:
+                <(?P<angle_url>[^>]+)>         # URL in angle brackets
+                |
+                (?P<plain_url>
+                    (?:
+                        [^()\s\\]+              # URL characters (no spaces, no parentheses)
+                        |\\.
+                        | \( (?P>plain_url) \)   # Recursively match nested parentheses
+                    )+
+                )
+            )
+        )
+        (?:\s+                                  # Optional whitespace before title
+            (?P<title>
+                (?:
+                    " (?: [^"\\] | \\.)* "       # Title in double quotes
+                    |
+                    ' (?: [^'\\] | \\.)* '       # Title in single quotes
+                    |
+                    \( (?: [^)\\] | \\.)* \)      # Title in parentheses
+                )
+            )
+        )?
+        \s*
+    \)
+''', regex.VERBOSE)
 
 
 def handle_shortcode(content, url, **kwargs):
@@ -17,6 +53,24 @@ def handle_shortcode(content, url, **kwargs):
         ' '.join(set(classes)),
         content
     )
+
+
+@app.transformer('article_schema')
+def transform_schema(schema):
+    schema['cta'] = None
+    return schema
+
+
+@app.transformer('article_property', prop='cta')
+def transform_property(value, prop):
+    def replace(match):
+        classes = ['btn', 'btn-lg', 'btn-primary', 'btn-cta', 'shadow-lg']
+
+        return '<a href="%(url)s" class="%%s">%(text)s</a>' % (
+            match.groupdict()
+        ) % ' '.join(classes)
+
+    return utils.mark_safe(LINK_TAG_EX.sub(replace, value))
 
 
 @app.transformer('article_body', 90)

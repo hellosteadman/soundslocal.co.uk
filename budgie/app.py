@@ -35,7 +35,12 @@ class BudgieApp(object):
         if not self.domain:
             raise RuntimeError('Unable to determine website domain.')
 
-        for plugin_name in settings.PLUGINS:
+        plugins = [
+            'budgie.contrib.media',
+            'budgie.contrib.staticfiles'
+        ] + list(set(settings.PLUGINS))
+
+        for plugin_name in plugins:
             import_module(plugin_name)
 
         try:
@@ -116,10 +121,10 @@ class BudgieApp(object):
         for callback in self.__callbacks[event_name]:
             callback(*args, **kwargs)
 
-    def transformer(self, transformer_name: str, ordering: int = 10):
+    def transformer(self, transformer_name: str, ordering: int = 10, **kwargs):
         def decorator(func):
             self.__transformers[transformer_name].append(
-                (func, ordering)
+                (func, ordering, kwargs)
             )
 
             return func
@@ -194,15 +199,27 @@ class BudgieApp(object):
 
         return context
 
-    def transform(self, transformer_name, value):
+    def transform(self, transformer_name, value, **kwargs):
         transformers = self.__transformers[transformer_name]
         transformers = [
-            t[0]
+            (t[0], t[2])
             for t in sorted(transformers, key=lambda t: t[1])
         ]
 
-        for transformer in transformers:
-            value = transformer(value)
+        for (transformer, defined_kwargs) in transformers:
+            ignore = False
+
+            for defined_key, defined_value in defined_kwargs.items():
+                if not isinstance(defined_value, (list, tuple)):
+                    defined_value = [defined_value]
+
+                runtime_value = kwargs.get(defined_key)
+                if runtime_value not in defined_value:
+                    ignore = True
+                    break
+
+            if not ignore:
+                value = transformer(value, **kwargs)
 
         return value
 

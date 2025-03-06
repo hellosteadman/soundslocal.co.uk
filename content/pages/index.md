@@ -33,7 +33,7 @@ Whether it's large language models, agentic AI, or something wholly new, you won
 
 === BIO SECTION ===
 
-![Mark Steadman at a desk](/static/img/mark-desk.png)
+![Mark Steadman at a desk](img/mark-desk.png)
 
 === SECTION ===
 

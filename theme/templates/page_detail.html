@@ -4,7 +4,7 @@
 
 {% block body %}
     {% if object.banner %}
-        <div class="banner" style="background-image: url('{% static object.banner %}');"></div>
+        <div class="banner" style="background-image: url('{{ object.banner.url() }}');"></div>
     {% endif %}
 
     <div class="container">

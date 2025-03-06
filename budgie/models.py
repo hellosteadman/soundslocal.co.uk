@@ -74,12 +74,14 @@ class ModelBase(object):
                         key = key.lower().strip()
                         value = value.strip()
 
-                        if key == 'tags':
-                            self.tags = {
-                                tag.strip() for tag in value.split(',')
-                            }
-                        elif key in PROPERTIES:
-                            setattr(self, key, value)
+                        if key in PROPERTIES:
+                            transformed = app.transform(
+                                'article_property',
+                                value,
+                                prop=key
+                            )
+
+                            setattr(self, key, transformed)
                         else:
                             raise ContentDefinitionError(
                                 'Invalid property: \'%s\'' % key

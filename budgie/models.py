@@ -8,16 +8,13 @@ import re
 
 
 META_LINE_EX = re.compile(r'^(\w+): (.+)$')
-PROPERTIES = (
-    'title',
-    'seo_title',
-    'seo_description',
-    'robots',
-    'lede',
-    'banner',
-    'featured_image',
-    'thumbnail'
-)
+SCHEMA = {
+    'title': '',
+    'seo_title': '',
+    'seo_description': '',
+    'robots': None,
+    'lede': ''
+}
 
 
 class Collection(object):
@@ -62,9 +59,10 @@ class ModelBase(object):
     def __init__(self, collection, filename):
         in_content = False
         body = ''
+        schema = app.transform('article_schema', dict(**SCHEMA))
 
-        for key in PROPERTIES:
-            setattr(self, key, None)
+        for prop, default_value in schema.items():
+            setattr(self, prop, None)
 
         with open(filename, 'r') as f:
             for line in f.readlines():
@@ -74,7 +72,7 @@ class ModelBase(object):
                         key = key.lower().strip()
                         value = value.strip()
 
-                        if key in PROPERTIES:
+                        if key in schema:
                             transformed = app.transform(
                                 'article_property',
                                 value,

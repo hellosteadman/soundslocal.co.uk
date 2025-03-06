@@ -70,7 +70,7 @@ class BudgieApp(object):
             if name:
                 tag_name = name
             elif func.__name__.endswith('_tag'):
-                tag_name = func.__name__[:-7]
+                tag_name = func.__name__[:-4]
             else:
                 tag_name = func.__name__
 

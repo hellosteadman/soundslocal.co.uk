@@ -1,16 +1,20 @@
 {% extends 'page_detail.html' %}
-{% block body_classes %}frontpage{% endblock %}
+{% block body_classes %}frontpage page{% endblock %}
 
 {% block body %}
-    <div class="container margin-y-4 margin-y-tablet-5">
-        <div class="grid">
-            <div class="cell-tablet-9">
-                <h1>{{ object.heading }}</h1>
+    <div class="hero has-video overlay">
+        <div class="video">
+            <video poster="{% media 'img/home-banner.jpg' %}" autoplay muted loop>
+                <source type="video/mp4" src="{% media 'mov/home-banner.mp4' %}">
+            </video>
+        </div>
 
-                {% if object.lede %}
-                    <p class="display-4 margin-bottom-5">{{ object.lede }}</p>
-                {% endif %}
-            </div>
+        <div class="container position-relative z-3 text-white">
+            <h1 class="display-1">{{ object.heading }}</h1>
+
+            {% if object.lede %}
+                <p class="display-3 font-weight-normal margin-bottom-5 margin-bottom-tablet-0">{{ object.lede }}</p>
+            {% endif %}
         </div>
     </div>
 

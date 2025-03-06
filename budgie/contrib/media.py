@@ -43,6 +43,13 @@ IMG_TAG_EX = regex.compile(r'''
 MEDIA_DIR = os.path.join(settings.CONTENT_DIR, 'media')
 
 
+def cache_file(filename):
+    files = app.cache.get('media', [])
+    if filename not in files:
+        files.append(filename)
+        app.cache['media'] = files
+
+
 class File(object):
     def __init__(self, filename):
         self.__filename = filename
@@ -115,3 +122,8 @@ def transform_img(value):
         return '![%s](%s)' % (alt, media.url())
 
     return IMG_TAG_EX.sub(replace, value)
+
+
+@app.tag()
+def media_tag(path):
+    return File(path).url()

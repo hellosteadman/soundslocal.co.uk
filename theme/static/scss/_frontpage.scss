@@ -1,5 +1,29 @@
 body.frontpage {
     background: #FFF8E8;
+    
+    .main-menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 4;
+
+        a.site-brand {
+            color: #fff !important;
+
+            svg {
+                path {
+                    fill: #fff;
+                }
+            }
+        }
+
+        * {
+            --budgie-navbar-color: #fff;
+            --budgie-nav-link-color: #fff;
+            --budgie-nav-link-hover-color: #fff;
+        }
+    }
 
     .features-cell {
         margin-top: -3rem;
@@ -88,5 +112,9 @@ body.frontpage {
                 border-radius: $border-radius-pill;
             }
         }
+    }
+
+    .hero {
+        padding: 5rem 0 3rem 0;
     }
 }

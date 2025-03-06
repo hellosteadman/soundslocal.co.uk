@@ -1,6 +1,7 @@
 body.page {
     .hero {
         padding: 3rem 0;
+        height: 40vh;
 
         @include media-breakpoint-up('tablet') {
             height: 75vh;
@@ -32,6 +33,7 @@ body.page {
                 bottom: 0;
                 left: 0;
                 width: 100%;
+                height: 100%;
                 object-fit: fill;
             }
         }

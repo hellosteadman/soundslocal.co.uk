@@ -4,7 +4,7 @@
 
 {% block body %}
     {% if object.featured_image %}
-        <header class="hero margin-bottom-n5">
+        <header class="hero padding-bottom-tablet-0">
             <div class="container">
                 <h1 class="display-1">{{ object.heading }}</h1>
 
@@ -13,15 +13,14 @@
                 {% endif %}
 
                 {% if object.cta %}{{ object.cta }}{% endif %}
+                <img alt="" role="presentation" src="{{ object.featured_image.url() }}" class="featured img-fluid">
             </div>
         </header>
 
-        <img alt="" role="presentation" src="{{ object.featured_image.url() }}" class="featured img-fluid margin-top-n5">
-        <div class="background-light padding-y-5">
     {% endif %}
 
     <div class="container">
-        <article class="grid">
+        <article>
             {% if not object.featured_image %}
                 <header class="hero">
                     <h1 class="display-1">{{ object.heading }}</h1>
@@ -34,11 +33,7 @@
                 </header>
             {% endif %}
 
-            <div class="cell-tablet-8">
-                <section class="body">{{ object.body }}</section>
-            </div>
+            <section class="body show-flex flex-column justify-content-center">{{ object.body }}</section>
         </article>
     </div>
-
-    {% if object.featured_image %}</div>{% endif %}
 {% endblock body %}

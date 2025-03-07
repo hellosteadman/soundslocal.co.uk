@@ -1,14 +1,14 @@
 body.page {
     .hero {
         padding: 3rem 0;
-        height: 40vh;
 
-        @include media-breakpoint-up('tablet') {
-            &.video {
+        &.has-video {
+            height: 40vh;
+            padding: 0;
+
+            @include media-breakpoint-up('tablet') {
                 height: 75vh;
             }
-
-            padding: 0;
         }
 
         display: flex;
@@ -62,5 +62,23 @@ body.page {
 
     main {
         position: relative;
+
+        section.body {
+            .section {
+                margin: 0 auto 3rem;
+                font-size: 1.25rem;
+                font-weight: normal;
+
+                @include media-breakpoint-up('tablet') {
+                    width: 60%;
+                }
+
+                p {
+                    + h2, + h3 {
+                        margin-top: 2rem;
+                    }
+                }
+            }
+        }
     }
 }

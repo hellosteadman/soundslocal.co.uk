@@ -4,7 +4,10 @@ body.page {
         height: 40vh;
 
         @include media-breakpoint-up('tablet') {
-            height: 75vh;
+            &.video {
+                height: 75vh;
+            }
+
             padding: 0;
         }
 
@@ -29,12 +32,12 @@ body.page {
 
             video {
                 position: absolute;
-                right: 0;
-                bottom: 0;
+                top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                object-fit: fill;
+                object-fit: cover;
+                object-position: center;
             }
         }
 

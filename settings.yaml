@@ -8,6 +8,7 @@ budgie_plugins:
   - budgie.contrib.cta
 
 frontend_packages:
+  - aos
   - bootstrap
   - bootstrap-icons
   - imagesloaded

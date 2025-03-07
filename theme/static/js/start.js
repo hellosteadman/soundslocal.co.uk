@@ -1,7 +1,11 @@
 import {} from 'bootstrap'
+import AOS from 'aos'
 
-(
-    () => {
-        console.debug('Loaded')
+AOS.init(
+    {
+        offset: 80,
+        duration: 1000,
+        once: true,
+        easing: 'ease'
     }
-)()
+)

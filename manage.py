@@ -34,7 +34,7 @@ def build(domain: str = None):
 @click.option('--port', type=int, default=8000, help='Port to serve files on.')
 def serve(host: str = 'localhost', port: int = 8000):
     """
-    Run the develompent server.
+    Run the development server.
     """
 
     budgie.app.domain = '%s:%s' % (host, port)

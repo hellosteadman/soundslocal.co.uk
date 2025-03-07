@@ -36,7 +36,7 @@ The build process expects a `js/start.js` file and an `scss/start.scss` file to 
 
 I've ignored `package.json` and `package-lock.json` in the repo as Budgie will try and create the necessary infrastructure itself. But it shouldn't complain if you have your own `package.json` file, and will only try and install dependencies it doesn't have (it's a naive approach, just checking the `devDependencies` list).
 
-## Running the develompent server
+## Running the development server
 
 Running `python manage.py serve` will start the development server at `http://localhost:8000`. You can set the host and port to something differenet if you need to.
 

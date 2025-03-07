@@ -85,8 +85,12 @@ The idea is to make safe and inclusive dialogue accessible to all.
 
 === END IMPACT SECTION ===
 
+=== CONSTRUCTION SECTION ===
+
 ## Early days
 
 I'm still spinning things up, so if you'd like to work with me or get involved in a project, hit the button below. I'll update the website with more as it develops.
 
 [cta "mailto:mark@soundslocal.co.uk"]Get in touch[/cta]
+
+=== END CONSTRUCTION SECTION ===

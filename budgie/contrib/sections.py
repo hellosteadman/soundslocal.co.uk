@@ -10,7 +10,13 @@ def render_section(lines, slug=None):
     if slug:
         classes.append(f'{slug}-section')
 
-    html = [f'<div class="{" ".join(classes)}">']
+    html = [
+        '<div class="%s" %s>' % (
+            ' '.join(classes),
+            'data-aos="fade-up"'
+        )
+    ]
+
     text = '\n'.join(lines)
     html += app.transform('article_body', text)
     html.append('</div>')

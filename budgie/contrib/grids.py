@@ -6,15 +6,19 @@ START_GRID_EX = re.compile(r'^=== *GRID OF (\d+)([^=]+)?=== *$')
 END_GRID_EX = re.compile(r'^=== *END GRID OF (\d+)([^=]+)?=== *$')
 
 
-def render_row(lines, width, slug=None):
+def render_row(lines, width, slug=None, index=0):
     classes = ['cell', 'cell-12', 'cell-tablet-%d' % width]
+    delay = 300 * (index + 1)
 
     if slug:
         classes.append('%s-cell' % slug)
 
     classes.append('margin-bottom-3')
     html = [
-        '<div class="%s">' % ' '.join(classes),
+        '<div class="%s" %s>' % (
+            ' '.join(classes),
+            ('data-aos="fade-up" data-aos-delay="%s"' % delay)
+        ),
         '<div>',
         app.transform('article_body', '\n'.join(lines)),
         '</div>'
@@ -32,15 +36,17 @@ def render_grid(cells, lines, slug=None):
     html = ['<div class="%s">' % ' '.join(classes)]
     row = None
     width = int(12 / cells)
+    index = 0
 
     for line in lines:
         if line.startswith('##'):
             if row is not None:
                 html.append(
-                    render_row(row, width, slug)
+                    render_row(row, width, slug, index)
                 )
 
                 row = None
+                index += 1
 
             if row is None:
                 row = []
@@ -50,7 +56,7 @@ def render_grid(cells, lines, slug=None):
 
     if row is not None and any(row):
         html.append(
-            render_row(row, width, slug)
+            render_row(row, width, slug, index)
         )
 
     html.append('</div>')

@@ -19,11 +19,11 @@
         grid-row: span 12;
 
         &.box-columns-6 { grid-column: span 12; }
-        &.box-columns-5 { grid-column: span 10; }
-        &.box-columns-4 { grid-column: span 8; }
+        &.box-columns-5 { grid-column: span 12; }
+        &.box-columns-4 { grid-column: span 6; }
         &.box-columns-3 { grid-column: span 6; }
-        &.box-columns-2 { grid-column: span 4; }
-        &.box-columns-1 { grid-column: span 2; }
+        &.box-columns-2 { grid-column: span 6; }
+        &.box-columns-1 { grid-column: span 6; }
 
         &.box-rows-12 { grid-row: span 12; }
         &.box-rows-11 { grid-row: span 11; }

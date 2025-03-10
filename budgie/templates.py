@@ -105,6 +105,13 @@ class Template(object):
 
                 if template_name.endswith('.html'):
                     soup = BeautifulSoup(rendered, 'html.parser')
+
+                    if head := soup.find('head'):
+                        app.emit('inject_head', head)
+
+                    if body := soup.find('body'):
+                        app.emit('inject_body', body)
+
                     rendered = str(soup)
 
                 return rendered

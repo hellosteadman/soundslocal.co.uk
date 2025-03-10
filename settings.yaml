@@ -5,6 +5,7 @@ budgie_plugins:
   - budgie.contrib.icons
   - budgie.contrib.sections
   - budgie.contrib.grids
+  - budgie.contrib.bento
   - budgie.contrib.cta
   - budgie.contrib.oembed
 

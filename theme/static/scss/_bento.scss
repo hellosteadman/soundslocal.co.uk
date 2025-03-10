@@ -52,5 +52,45 @@
             &.box-columns-2 { grid-column: span 2; }
             &.box-columns-1 { grid-column: span 1; }
         }
+
+        &.box-modular-design {
+            background: #293942;
+            color: #CDD9E4;
+        }
+
+        &.box-total-control {
+            background: #009DD1;
+            color: #fff;
+        }
+
+        &.box-hosting-maintenance {
+            background: #FDBC2D;
+            color: #fff;
+        }
+
+        &.box-seo-accessibility {
+            background: #73CC8D;
+            color: #fff;
+        }
+
+        &.box-support {
+            background: #FF5B4C;
+            color: #fff;
+        }
+
+        h2, h3 {
+            .bi {
+                font-size: 2rem;
+
+                &:after {
+                    display: block;
+                    content: ' ';
+                }
+            }
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
     }
 }

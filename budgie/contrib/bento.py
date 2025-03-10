@@ -1,3 +1,4 @@
+from bs4 import BeautifulSoup
 from budgie import app
 from slugify import slugify
 import re
@@ -46,7 +47,12 @@ def render_box(lines, index=0):
         html_lines.append(line)
 
     if title:
-        classes.append('box-%s' % slugify(title))
+        soup = BeautifulSoup(
+            app.transform('article_body', title),
+            'html.parser'
+        )
+
+        classes.append('box-%s' % slugify(soup.text))
 
     aos = ('data-aos="fade-up" data-aos-delay="%s"' % delay)
     html = [

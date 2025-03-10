@@ -11,7 +11,7 @@ body.page {
             position: relative;
             overflow: hidden;
 
-            @media screen and (min-height: 780px) {
+            @media screen and (min-device-height: 900px) {
                 padding: 0;
                 height: 75vh;
             }

@@ -8,6 +8,7 @@ budgie_plugins:
   - budgie.contrib.bento
   - budgie.contrib.cta
   - budgie.contrib.oembed
+  - budgie.contrib.calendly
 
 frontend_packages:
   - aos

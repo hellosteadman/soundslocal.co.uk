@@ -8,12 +8,11 @@ body.page {
         text-align: center;
 
         &.has-video {
-            height: 40vh;
-            padding: 0;
             position: relative;
             overflow: hidden;
 
-            @include media-breakpoint-up('tablet') {
+            @media screen and (min-height: 780px) {
+                padding: 0;
                 height: 75vh;
             }
         }

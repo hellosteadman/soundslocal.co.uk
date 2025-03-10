@@ -15,7 +15,6 @@
 @import 'bootstrap/scss/nav';
 @import 'bootstrap/scss/navbar';
 @import 'grid';
-@import 'bento';
 @import 'bootstrap/scss/helpers';
 @import 'bootstrap/scss/utilities/api';
 @import 'bootstrap/scss/transitions';
@@ -29,7 +28,10 @@
 
 @import 'bootstrap-icons/font/bootstrap-icons';
 
+@import 'bento';
+@import 'timeline';
 @import 'oembed';
+
 @import 'pages';
 @import 'frontpage';
 @import 'features';

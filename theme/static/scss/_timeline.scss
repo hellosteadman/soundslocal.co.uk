@@ -1,0 +1,58 @@
+.section.timeline-section {
+    ol {
+        list-style-type: none;
+        margin: 2rem 0;
+        padding: 0;
+        position: relative;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: calc(50% - .25rem);
+            width: .5rem;
+            content: ' ';
+            border-radius: $border-radius;
+            background: darken($light, 10);
+        }
+
+        @include media-breakpoint-up('tablet') {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin-left: -15%;
+            margin-right: 0;
+            width: 130%;
+            max-width: 130%;
+        }
+
+        li {
+            display: block;
+            background: darken($light, 10);
+            padding: 2rem;
+            border-radius: $border-radius;
+            margin-bottom: 1rem;
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            @include media-breakpoint-up('tablet') {
+                width: 60%;
+                margin: 0 auto 2rem 0;
+
+                &:nth-child(even) {
+                    margin: 0 0 2rem auto;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

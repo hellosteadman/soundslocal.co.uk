@@ -10,7 +10,7 @@ cta: [Let's get to work](mailto:mark@hellosteadman.com)
 
 ## What your website says about you
 
-Your website is more than just the place people to go find your contact details. It's where you get to share your achievements, where people can meet and join your team, and where the content you create can live without being filtered through an algorithm.
+Your website is more than just the place people go to find your contact details. It's where you get to share your achievements, where people can meet and join your team, and where the content you create can live without being filtered through an algorithm.
 
 When someone searches for you, your website's design and performance – how fast it loads and how enjoyable it is to use – form an important first impression.
 

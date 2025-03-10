@@ -25,6 +25,20 @@ body.frontpage {
         }
     }
 
+    .hero {
+        padding: 5rem 0 3rem 0;
+
+        &.has-video {
+            height: 100vh;
+
+            @include media-breakpoint-up('tablet') {
+                &.has-video {
+                    height: 75vh;
+                }
+            }
+        }
+    }
+
     .features-cell {
         margin-top: -3rem;
         margin-bottom: 6rem !important;
@@ -110,20 +124,6 @@ body.frontpage {
 
             p a.btn {
                 border-radius: $border-radius-pill;
-            }
-        }
-    }
-
-    .hero {
-        padding: 5rem 0 3rem 0;
-
-        &.has-video {
-            height: 100vh;
-
-            @include media-breakpoint-up('tablet') {
-                &.has-video {
-                    height: 75vh;
-                }
             }
         }
     }

@@ -1,16 +1,6 @@
 body.page {
     .hero {
         padding: 3rem 0;
-
-        &.has-video {
-            height: 40vh;
-            padding: 0;
-
-            @include media-breakpoint-up('tablet') {
-                height: 75vh;
-            }
-        }
-
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -18,8 +8,14 @@ body.page {
         text-align: center;
 
         &.has-video {
+            height: 40vh;
+            padding: 0;
             position: relative;
             overflow: hidden;
+
+            @include media-breakpoint-up('tablet') {
+                height: 75vh;
+            }
         }
 
         .video {

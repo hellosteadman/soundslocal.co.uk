@@ -121,7 +121,7 @@ def hot_reload(files_changed=[]):
 
 
 def run(host: str = 'localhost', port: int = 8000):
-    server = (host, port)
+    server = ('0.0.0.0', port)
 
     with DevServer(server, Handler) as httpd:
         click.echo('Starting development server...')

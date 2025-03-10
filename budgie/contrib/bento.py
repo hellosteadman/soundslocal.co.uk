@@ -109,22 +109,20 @@ def bento_transformer(value):
     bento = None
 
     for line in value.splitlines():
-        if match := START_BOX_EX.match(line.strip()):
+        if START_BOX_EX.match(line.strip()):
             if bento is not None:
                 raise Exception('Nested bento boxes aren\'t supported')
 
-            groups = match.groups()
             bento = {
                 'lines': []
             }
 
             continue
 
-        if match := END_BOX_EX.match(line.strip()):
+        if END_BOX_EX.match(line.strip()):
             if bento is None:
                 raise Exception('No open bento box to close')
 
-            groups = match.groups()
             lines.append(
                 render_bento(**bento)
             )

@@ -25,7 +25,7 @@ def render_box(lines, index=0):
             title = line.lstrip('#').strip()
             html_lines.append(line)
             continue
-        
+
         if match := COLUMNS_LINE.match(line):
             classes.append(
                 'box-columns-%d' % int(

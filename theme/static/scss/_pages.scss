@@ -68,6 +68,12 @@ body.page {
                     width: 60%;
                 }
 
+                blockquote {
+                    border-left: 2px solid $dark;
+                    marign-bottom: 1rem;
+                    padding-left: calc(1rem + 2px);
+                }
+
                 p {
                     + h2, + h3 {
                         margin-top: 2rem;

@@ -108,6 +108,10 @@ Provides a `markdown` template filter. This should definitely be included in `se
 
 Handles serving media files via the dev server, and building them as part of the build process. It parses Markdown image references and article properties, replacing the string path with a media `File` object. This is automatically activated.
 
+### `budgie.contrib.oembed`
+
+Parses Markdown for links to oEmbeddable resources, like YouTube videos.
+
 ### `budgie.contrib.sections`
 
 Works similarly to `budgie.contrib.grids`, but takes any markup and wraps it in a `<div class="section">`.

@@ -9,7 +9,7 @@ lede: Sounds Local provides hassle-free digital services to good causes and puts
 
 Hand-crafted WordPress, Wagtail, Ghost, or custom websites designed and built to order.
 
-### [:mic: Audio, video & text](/production/)
+### [:mic: Podcasts & video](/production/)
 
 Publish meetings in podcast form or publish a regular newsletter, so your members and stakeholders are kept in the loop.
 

@@ -43,7 +43,7 @@ def handle_shortcode(content, url, **kwargs):
     if size == 'md':
         size = ''   
 
-    classes = ['btn', 'btn-primary']
+    classes = ['btn', 'btn-primary', 'rounded-pill']
 
     if size:
         classes.append('btn-%s' % size)
@@ -64,7 +64,7 @@ def transform_schema(schema):
 @app.transformer('article_property', prop='cta')
 def transform_property(value, prop):
     def replace(match):
-        classes = ['btn', 'btn-lg', 'btn-primary', 'btn-cta', 'shadow-lg']
+        classes = ['btn', 'btn-lg', 'btn-primary', 'rounded-pill', 'btn-cta', 'shadow-lg']
 
         return '<a href="%(url)s" class="%%s">%(text)s</a>' % (
             match.groupdict()

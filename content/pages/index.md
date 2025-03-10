@@ -13,21 +13,9 @@ Hand-crafted WordPress, Wagtail, Ghost, or custom websites designed and built to
 
 Publish meetings in podcast form or publish a regular newsletter, so your members and stakeholders are kept in the loop.
 
-### :life-preserver: Tech support
-
-Get digital off your desk. Answers to confusing questions or fiddly problems are an email or a phone call away.
-
 ### :bullseye: Social media
 
 Follow a cohesive, connected plan to create content that furthers your mission and entertains.
-
-### :universal-access: Accessibility & SEO
-
-Make your content accessible by the largest number of people, and improve your SEO as part of the bargain.
-
-### :rocket-takeoff: Ready for the future
-
-Whether it's large language models, agentic AI, or something wholly new, you won't be left behind.
 
 === END GRID OF 3 FEATURES ===
 

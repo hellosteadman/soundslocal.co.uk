@@ -89,6 +89,16 @@ body.frontpage {
         }
     }
 
+    .cta-section {
+        text-align: center;
+
+        @include media-breakpoint-up('tablet') {
+            margin: 0 auto;
+            width: 60%;
+            padding: 2rem 0;
+        }
+    }
+
     .projects-cell {
         > div {
             padding: 1rem;

@@ -85,7 +85,7 @@ The idea is to make safe and inclusive dialogue accessible to all.
 
 === END IMPACT SECTION ===
 
-=== CONSTRUCTION SECTION ===
+=== CTA SECTION ===
 
 ## Early days
 
@@ -93,4 +93,4 @@ I'm still spinning things up, so if you'd like to work with me or get involved i
 
 [cta "mailto:mark@soundslocal.co.uk"]Get in touch[/cta]
 
-=== END CONSTRUCTION SECTION ===
+=== END CTA SECTION ===

@@ -5,3 +5,19 @@
     border-radius: $border-radius-sm;
     box-shadow: $box-shadow-lg;
 }
+
+.section {
+    .oembed {
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @include media-breakpoint-up('tablet') {
+            position: relative;
+            margin-left: -25%;
+            margin-right: 0;
+            width: 150%;
+            max-width: 150%;
+        }
+    }
+}

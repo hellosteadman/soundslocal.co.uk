@@ -54,6 +54,31 @@ It should trigger when content, templates, JS, or SCSS is changed. I'm sure ther
 
 There are a number of plugins, some considered more important than others:
 
+### `budgie.contrib.bento`
+
+This allows for marking up sections of copy that should be displayed as a bento box of items (similar to a masonry layout). You can mark up a bento box like this:
+
+```md
+=== BENTO BOX ===
+
+### Item one
+
+Text
+
+### Item two
+
+Text
+
+### Item three
+
+Text
+
+=== END BENTO BOX ===
+
+```
+
+Currently, bento boxes can't be nested.
+
 ### `budgie.contrib.cta`
 
 Turns markup like this:

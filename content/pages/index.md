@@ -1,17 +1,17 @@
 seo_title: Web design for social enterprises in Birmingham
 lede: Sounds Local provides hassle-free digital services to good causes and puts its profits into supporting projects that connect people in-person.
 
-# Digital services & support for small teams that make a big difference.
+# Digital support for small teams that make a big difference.
 
 === GRID OF 2 FEATURES ===
 
-### [:globe: Websites](/websites/)
+### [:globe: Website design & build](/websites/)
 
 Hand-crafted WordPress, Wagtail, Ghost, or custom websites designed and built to order.
 
-### [:mic: Podcasts & video](/production/)
+[Find out more :arrow-right-circle-fill:](/websites/)
 
-Publish meetings in podcast form or publish a regular newsletter, so your members and stakeholders are kept in the loop.
+### [:mic: Digital content production](/production/)
 
 Publish meetings in podcast or video form so members and stakeholders are kept in the loop.
 
@@ -27,11 +27,9 @@ Publish meetings in podcast or video form so members and stakeholders are kept i
 
 ## Hiya 👋 I'm Mark
 
-I've been building websites since the turn of the century. I've worked as tech lead for a number of marketing firms in the health and cultural sectors, as well as volunteering on community radio projects.
+I've been building websites since the turn of the century. I've worked as tech lead for a number of marketing firms, and on projects in the health and cultural sectors, as well as volunteering on community radio projects.
 
 Since going freelance in 2016, I've worked with BT Sport, the BBC, Amazon, Mozilla and more, lending my technical chops, training, and consultation.
-
-[cta "mailto:mark@soundslocal.co.uk"]Get in touch[/cta]
 
 === END SECTION ===
 
@@ -39,7 +37,11 @@ Since going freelance in 2016, I've worked with BT Sport, the BBC, Amazon, Mozil
 
 === IMPACT SECTION ===
 
-## Connecting people in the real world
+![Glass and bottle of beer](img/beer.png)
+
+=== SECTION ===
+
+## My mission: one pint at a time
 
 Polarising social media, disillusionment, and the rise of remote work, among other factors, contribute to social isolation and loneliness.
 
@@ -47,31 +49,36 @@ The Internet is a powerful way to connect people who wouldn't otherwise meet. Bu
 
 Sounds Local is a community interest company, meaning the profit it generates is put back into the community to fund projects that get people off screens and out into the world.
 
+=== END SECTION ===
+
+=== END IMPACT SECTION ===
+
 === GRID OF 3 PROJECTS ===
 
-### [🎤 C90 Community Chorus](/c90/)
+### [C90 Community Chorus](/c90/)
 
-C90 is a singing group open to adults who want to come together and sing 90s songs for fun, to make new friends, and potentially to perform in low-stakes environments.
+[![C90 header image](img/frontpage-c90.jpg)](/c90/)
 
-No musical knowledge required.
+A singing group open to adults who want to come together and sing 90s songs for fun, to make new friends, and occasionally to perform relaxed gigs.
 
-[cta "/c90/" size="md"]Find out more[/cta]
+[Find out more :arrow-right-circle-fill:](/c90/)
 
-### 🙋🏼‍♂️ Hazelwell Men's Group
+### Hazelwell Men's Group
+
+![Men's group header image](img/frontpage-mensgroup.jpg)
 
 Starting in Stirchley, this men’s group provides a judgement-free weekly talking session.
 
 The aim is to combatt toxic masculinity and provide a supportive space for men to learn and grow.
 
-### 🍕 The Speakeasy Fund
+### The Speakeasy Fund
+![Speakeasy Fund header image](img/frontpage-speakeasy.jpg)
 
 Anyone looking to gather people together to discuss a shared idea can apply to the fund to pay for food and drink for the night.
 
 The idea is to make safe and inclusive dialogue accessible to all.
 
 === END GRID OF 3 PROJECTS ===
-
-=== END IMPACT SECTION ===
 
 === CTA SECTION ===
 

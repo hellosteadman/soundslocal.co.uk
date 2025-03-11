@@ -30,8 +30,7 @@ body.frontpage {
     }
 
     .features-cell {
-        margin-top: -3rem;
-        margin-bottom: 6rem !important;
+        margin: -3rem 0 6rem !important;
         position: relative;
         z-index: 4;
 
@@ -45,27 +44,62 @@ body.frontpage {
         p:last-child {
             margin-bottom: 0;
         }
-    }
 
-    .bio-section {
-        margin-bottom: 3rem;
-        gap: 2rem;
-
-        @include media-breakpoint-up('tablet') {
+        > div {
+            padding: 2rem;
+            height: 100%;
             display: flex;
+            flex-direction: column;
+            background: $feature-bg;
+            border-radius: $border-radius-sm;
+            border-bottom: .6rem solid darken($feature-bg, 10);
+            position: relative;
+            overflow: hidden;
+        }
 
-            .section {
-                flex: 0 0 60%;
-                order: 1;
-            }
+        h2, h3, p {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
 
-            > p:has(img) {
-                flex: 0 0 40%;
-                max-width: 100%;
-                order: 2;
-                margin-bottom: -3rem;
+        h2, h3 {
+            font-weight: $font-weight-bolder;
+            letter-spacing: -.08rem;
+            color: $accent;
+
+            i {
+                position: absolute;
+                z-index: 1;
+                top: 1rem;
+                right: -4rem;
+                font-size: 9rem;
+                color: #fff;
+                opacity: .5;
+                pointer-events: none;
             }
         }
+
+        p {
+            font-size: 1.25rem;
+            font-weight: bold;
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .section {
+        h2, h3 {
+            font-weight: $font-weight-bolder;
+            letter-spacing: -.08rem;
+        }
+    }
+
+    .bio-section, .impact-section {
+        margin-bottom: 3rem;
+        gap: 2rem;
 
         .section {
             > p {
@@ -75,20 +109,48 @@ body.frontpage {
         }
 
         p > img {
-            max-width: 100%;
+            display: block;
+            max-height: 30vh;
+            margin: 0 auto;
             height: auto;
+        }
+
+        @include media-breakpoint-up('tablet') {
+            display: flex;
+
+            .section {
+                flex: 0 0 60%;
+                order: 1;
+            }
+
+            p > img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            > p:has(img) {
+                flex: 0 0 40%;
+                max-width: 100%;
+                order: 2;
+                margin-bottom: -3rem;
+            }
         }
     }
 
     .impact-section {
-        margin-bottom: 3rem;
+        margin: 5rem 0 0;
 
-        > p {
-            font-size: 1.25rem;
-            font-weight: 300;
+        @include media-breakpoint-up('tablet') {
+            gap: 3rem;
 
-            @include media-breakpoint-up('tablet') {
-                width: 60%;
+            .section {
+                flex: 0 0 70%;
+                order: 2;
+            }
+
+            > p:has(img) {
+                flex: 0 0 25%;
+                order: 1;
             }
         }
     }
@@ -116,23 +178,33 @@ body.frontpage {
             flex-direction: column;
             background: #E9E5F0;
             border-radius: $border-radius-sm;
-            box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, .15);
+
+            p:has(img) {
+                order: -1;
+
+                img {
+                    margin: -1rem 0 0 -1rem;
+                    width: calc(100% + 2rem);
+                }
+            }
 
             h2, h3 {
+                font-size: 1.25rem;
+                font-weight: $font-weight-bolder;
+
                 a {
                     text-decoration: none;
                     color: $black;
                 }
             }
 
-            p:has(a.btn) {
-                position: relative;
-                margin-bottom: -2rem;
-                text-align: center;
+            p > a {
+                font-weight: $font-weight-bold;
+                text-decoration: none;
             }
 
-            p a.btn {
-                border-radius: $border-radius-pill;
+            p:last-child {
+                margin-bottom: 0;
             }
         }
     }

@@ -1,6 +1,6 @@
 body.frontpage {
     background: #FFF8E8;
-    
+
     .main-menu {
         position: absolute;
         top: 0;
@@ -40,6 +40,10 @@ body.frontpage {
                 text-decoration: none;
                 color: $accent;
             }
+        }
+
+        p:last-child {
+            margin-bottom: 0;
         }
     }
 
@@ -97,6 +101,11 @@ body.frontpage {
             width: 60%;
             padding: 2rem 0;
         }
+    }
+
+    .projects-grid * {
+        --budgie-gutter-x: 2.5rem;
+        --budgie-gutter-y: 2.5rem;
     }
 
     .projects-cell {

@@ -108,6 +108,36 @@
             color: #fff;
         }
 
+        &.box-instagram {
+            background: #FF0069;
+            color: #fff;
+        }
+
+        &.box-tiktok, &.box-threads {
+            background: #000;
+            color: #fff;
+        }
+
+        &.box-substack {
+            background: #FF6719;
+            color: #fff;
+        }
+
+        &.box-linkedin {
+            background: #0B65C3;
+            color: #fff;
+        }
+
+        &.box-twitter-or-x {
+            background: #1D9BF0;
+            color: #fff;
+        }
+
+        &.box-facebook {
+            background: #0866FF;
+            color: #fff;
+        }
+
         h2, h3 {
             .bi {
                 font-size: 2rem;

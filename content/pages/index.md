@@ -13,7 +13,7 @@ Hand-crafted WordPress, Wagtail, Ghost, or custom websites designed and built to
 
 Publish meetings in podcast form or publish a regular newsletter, so your members and stakeholders are kept in the loop.
 
-### :bullseye: Social media
+### [:bullseye: Social media](/social/)
 
 Follow a cohesive, connected plan to create content that furthers your mission and entertains.
 

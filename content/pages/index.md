@@ -3,7 +3,7 @@ lede: Sounds Local provides hassle-free digital services to good causes and puts
 
 # Digital services & support for small teams that make a big difference.
 
-=== GRID OF 3 FEATURES ===
+=== GRID OF 2 FEATURES ===
 
 ### [:globe: Websites](/websites/)
 
@@ -13,11 +13,11 @@ Hand-crafted WordPress, Wagtail, Ghost, or custom websites designed and built to
 
 Publish meetings in podcast form or publish a regular newsletter, so your members and stakeholders are kept in the loop.
 
-### [:bullseye: Social media](/social/)
+Publish meetings in podcast or video form so members and stakeholders are kept in the loop.
 
-Follow a cohesive, connected plan to create content that furthers your mission and entertains.
+[Find out more :arrow-right-circle-fill:](/production/)
 
-=== END GRID OF 3 FEATURES ===
+=== END GRID OF 2 FEATURES ===
 
 === BIO SECTION ===
 

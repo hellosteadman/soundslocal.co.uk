@@ -19,6 +19,8 @@
     }
 
     h2, h3 {
+        font-weight: $font-weight-bolder;
+        letter-spacing: -.08rem;
         color: $accent;
 
         i {

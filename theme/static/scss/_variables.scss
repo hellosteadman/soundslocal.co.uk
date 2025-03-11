@@ -59,15 +59,14 @@ $display-font-sizes: (
     6: 1rem
 );
 
-$headings-font-family: 'Bree Serif';
-$font-family-sans-serif: 'Merriweather';
+$font-family-sans-serif: 'Manrope';
 $font-weight-lighter: lighter;
 $font-weight-light: 300;
 $font-weight-normal: 400;
-$font-weight-medium: 400;
-$font-weight-semibold: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
 $font-weight-bold: 700;
-$font-weight-bolder: 900;
+$font-weight-bolder: 800;
 $bootstrap-icons-font-dir: '../fonts';
 
 $box-shadow: 0 .5rem 1rem rgba($black, .1);

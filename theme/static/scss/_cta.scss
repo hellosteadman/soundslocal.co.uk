@@ -1,0 +1,12 @@
+.btn-cta {
+    background: linear-gradient(45deg, #FF9090 0%, #C570D7 100%);
+    border-width: 0;
+    border-bottom: .4rem solid #00000033;
+    font-weight: $font-weight-bolder;
+    transition: all .3s ease;
+
+    &:hover {
+        background: linear-gradient(45deg, #{darken(#FF9090, 10)} 0%, #{darken(#C570D7, 10)} 100%);
+        border-bottom-color: #00000044;
+    }
+}

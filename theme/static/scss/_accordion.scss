@@ -15,36 +15,26 @@
         overflow: hidden;
 
         > div {
-            background: $dark;
+            background: $honey;
             border-radius: $border-radius;
             position: relative;
+            display: flex;
+            flex-direction: column;
 
             > img {
-                position: absolute;
-                top: 0;
-                left: 0;
+                display: none;
                 width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
-                z-index: 1;
-                filter: grayscale(100%) contrast(50%) brightness(.5);
-                transition: filter .3s ease;
-            }
-
-            &:has(img) {
-                a.accordion-header {
-                    color: $light;
-                }
+                order: 2;
             }
 
             .accordion-header {
                 position: relative;
                 display: block;
                 padding: 1rem;
-                color: $light;
+                color: $dark;
                 text-decoration: none;
                 z-index: 2;
+                order: 1;
 
                 h2 {
                     font-size: 1.5rem;
@@ -56,12 +46,15 @@
 
             .accordion-content {
                 position: relative;
-                background: $light;
+                background: $white;
                 padding: 0;
                 height: 0;
                 overflow: hidden;
                 opacity: 0;
                 z-index: 2;
+                order: 3;
+                font-size: 1.25rem;
+                font-weight: normal;
 
                 p:first-child {
                     margin-top: 0;
@@ -87,13 +80,39 @@
                 }
 
                 > img {
-                    filter: grayscale(0) contrast(60%) brightness(.9);
+                    display: block;
                 }
             }
         }
     }
 
     @include media-breakpoint-up('tablet') {
+        &.horizontal {
+            > li.accordion-item {
+                > div {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+
+                    > img {
+                        width: 25%;
+                        flex-basis: 25%;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+
+                    .accordion-header {
+                        width: 100%;
+                        flex-basis: 100%;
+                    }
+
+                    .accordion-content {
+                        width: 75%;
+                        flex-basis: 75%;
+                    }
+                }
+            }
+        }
+
         &.vertical {
             flex-direction: row;
             flex-wrap: nowrap;
@@ -113,11 +132,31 @@
                 height: 100%;
 
                 > div {
-                    display: flex;
-                    width: 15rem;
+                    flex-direction: row;
+                    min-width: 15rem;
                     height: 100%;
                     align-items: center;
                     transition: width .3s ease;
+
+                    &:has(img) {
+                        a.accordion-header {
+                            color: $light;
+                        }
+                    }
+
+                    > img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                        z-index: 1;
+                        filter: grayscale(100%) contrast(50%) brightness(.5);
+                        transition: filter .3s ease;
+                    }
 
                     .accordion-header {
                         display: flex;
@@ -135,6 +174,7 @@
                         justify-content: center;
                         width: 0;
                         height: 100%;
+                        font-size: 1rem;
                         text-wrap: nowrap;
                         transition: opacity .3s ease;
                         transition-delay: .3s;
@@ -148,6 +188,10 @@
                         .accordion-content {
                             width: 100%;
                             text-wrap: wrap;
+                        }
+
+                        > img {
+                            filter: grayscale(0) contrast(60%) brightness(.9);
                         }
                     }
                 }

@@ -70,6 +70,8 @@ def render_accordion(lines, vertical=False):
     if vertical:
         classes.append('vertical')
         html.append('<div class="vertical-accordion-wrapper">')
+    else:
+        classes.append('horizontal')
 
     html.append('<ul class="%s">' % ' '.join(classes))
     section = None

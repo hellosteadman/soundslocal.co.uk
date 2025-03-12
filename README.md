@@ -79,7 +79,7 @@ Text
 
 Currently, bento boxes can't be nested.
 
-### `budgie.contrib.calendar`
+### `budgie.contrib.calendly`
 
 Injects CSS and JS tags to handle Calendly links.
 

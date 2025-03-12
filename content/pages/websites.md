@@ -110,7 +110,7 @@ I hear that. But the good news is, I've spent 25 years doing this, which means I
 
 **I want to bring everything I've learned about digital marketing and website building to social enterprises. Let's work together on building something simple, long-lasting, and most-importantly, effective.**
 
-[cta "mailto:mark@soundslocal.co.uk"]Let's get started[/cta]
+[cta "https://calendly.com/hellosteadman/chat"]Let's get started[/cta]
 
 === END HARD SECTION ===
 

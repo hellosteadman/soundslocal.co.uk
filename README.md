@@ -83,6 +83,29 @@ Currently, bento boxes can't be nested.
 
 Injects CSS and JS tags to handle Calendly links.
 
+### `budgie.contrib.carousel`
+
+This allows for marking up sections of copy that should be displayed as a horizontal or vertical carousel. You can mark up a carousel like this:
+
+```md
+=== CAROUSEL ===
+
+## Item one
+
+Text
+
+## Item two
+
+Text
+
+## Item three
+
+Text
+
+=== END CAROUSEL ===
+
+```
+
 ### `budgie.contrib.cta`
 
 Turns markup like this:

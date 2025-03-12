@@ -6,6 +6,7 @@ budgie_plugins:
   - budgie.contrib.sections
   - budgie.contrib.grids
   - budgie.contrib.bento
+  - budgie.contrib.carousel
   - budgie.contrib.cta
   - budgie.contrib.oembed
   - budgie.contrib.calendly

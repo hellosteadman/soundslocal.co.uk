@@ -20,6 +20,62 @@ A fast, user-first website gives you the best chance of making that first impres
 
 === END INTRO SECTION ===
 
+=== VERTICAL CAROUSEL ===
+
+## WordPress
+
+![WordPress](img/websites-wp.jpg)
+
+I built my first WordPress website in 2008, and have been working with the platform ever since.
+
+I don't use off-the-shelf drag-and-drop page builder themes, as these slow websites down, make them harder to maintain, and negatively impact their SEO.
+
+Instead, I use a custom-built framework that gives you total control over content and layout, without compromising speed and ease-of-use.
+
+With WordPress being the web's most popular CMS, its sites are often targets for hackers. I host WordPress websites securely in a London data centre, and monitor installations to keep them up-to-date.
+
+[cta "https://calendly.com/hellosteadman/chat" size="md"]Let's get started[/cta]
+
+## Ghost
+
+![Ghost](img/websites-ghost.jpg)
+
+I first encountered Ghost in 2014 and have built websites for podcasters, journalists, and bloggers who want a ismple way to communicate with their audience, and make money.
+
+I build new Ghost themes and extend the functionality of existing ones, using two decades of frontend web design and development experience.
+
+As an independent content creator myself, I have a solid grasp of the creator economy, and what it takes to build and maintain a community around your content.
+
+[cta "https://calendly.com/hellosteadman/chat" size="md"]Let's get started[/cta]
+
+## Wagtail
+
+![Wagtail](img/websites-wagtail.jpg)
+
+I first discovered Django, the framework that powers the Wagtail CMS, in 2008, and it's my goto platform for anything where ultimate flexibility is a necessity.
+
+I've delivered talks at DjangoCon 2013, 2015, and 2017, and have extended the Wagtail CMS with a number of modules over the years.
+
+With Wagtail growing in popularity, it's becoming the sensible choice for organisations that need a faster and more robust platform than WordPress.
+
+And that popularity means if you need to bring on a new developer at a later stage, you'll have an easier time finding one than ever before.
+
+[cta "https://calendly.com/hellosteadman/chat" size="md"]Let's get started[/cta]
+
+## Custom builds
+
+![Keyboard](img/websites-custom.jpg)
+
+My first web product in 2008 went somewhat viral, and was used by universities and by the Guardian. Since then, I've developed my own CMS for podcasters, which was sold to a podcast hosting company in 2021.
+
+This website is itself a custom build – a static site generator written in Python, which means it can be hosted for free as there are no complicated databases or brittle moving parts.
+
+All of this to say, if you need something built that doesn't fall into the usual categories – maybe a tool to help you gather and interpret data, or something fun using AI – I would love to get involved.
+
+[cta "https://calendly.com/hellosteadman/chat" size="md"]Let's get started[/cta]
+
+=== END CAROUSEL ===
+
 === USER-FIRST SECTION ===
 
 ## What is a "user-first" website?

@@ -64,6 +64,7 @@ body.frontpage {
         }
 
         h2, h3 {
+            font-size: 1.2rem;
             font-weight: $font-weight-bolder;
             letter-spacing: -.08rem;
             color: $accent;
@@ -81,8 +82,7 @@ body.frontpage {
         }
 
         p {
-            font-size: 1.25rem;
-            font-weight: bold;
+            font-size: 1.1rem;
 
             a {
                 text-decoration: none;

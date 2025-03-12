@@ -3,7 +3,7 @@ lede: Sounds Local provides hassle-free digital services to good causes and puts
 
 # Digital support for small teams that make a big difference.
 
-=== GRID OF 2 FEATURES ===
+=== GRID OF 3 FEATURES ===
 
 ### [:globe: Website design & build](/websites/)
 
@@ -17,7 +17,13 @@ Publish meetings in podcast or video form so members and stakeholders are kept i
 
 [Find out more :arrow-right-circle-fill:](/production/)
 
-=== END GRID OF 2 FEATURES ===
+### [:grid-fill: Technical consulting](/consulting/)
+
+Get help navigating complex digital projects, from a tech expert who also speaks fluent human.
+
+[Find out more :arrow-right-circle-fill:](/consulting/)
+
+=== END GRID OF 3 FEATURES ===
 
 === BIO SECTION ===
 

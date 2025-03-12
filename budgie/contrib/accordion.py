@@ -39,9 +39,7 @@ def render_section(lines, index=0):
         soup = BeautifulSoup(title, 'html.parser')
         classes.append('accordion-item-%s' % slugify(soup.text))
 
-    aos = ('data-aos="fade-up" data-aos-delay="%s"' % delay)
     header = ''
-
     if title:
         header = '<a class="accordion-header" href="javascript:;">%s</a>' % (
             title
@@ -57,10 +55,7 @@ def render_section(lines, index=0):
         )
 
     html = [
-        '<li class="%s" %s>' % (
-            ' '.join(classes),
-            aos
-        ),
+        '<li class="%s">' % (' '.join(classes)),
         '<div>', (image or ''), header, inner, '</div>'
         '</li>'
     ]

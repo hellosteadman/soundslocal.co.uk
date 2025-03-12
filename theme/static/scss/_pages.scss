@@ -8,6 +8,10 @@ body.page {
         text-align: center;
         text-wrap: balance;
 
+        h1 {
+            color: darken(#9E363F, 10);
+        }
+
         &.has-video {
             position: relative;
             overflow: hidden;
@@ -15,6 +19,10 @@ body.page {
             @media screen and (min-device-height: 900px) {
                 padding: 0;
                 height: 75vh;
+            }
+
+            h1 {
+                color: $white;
             }
         }
 

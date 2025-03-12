@@ -1,4 +1,4 @@
-.carousel {
+.accordion {
     list-style-type: none;
     margin: 0 0 2rem 0;
     padding: 0;
@@ -9,7 +9,7 @@
         margin-top: 0;
     }
 
-    > li.carousel-item {
+    > li.accordion-item {
         margin: 0 0 1rem 0;
         border-radius: $border-radius;
         overflow: hidden;
@@ -33,12 +33,12 @@
             }
 
             &:has(img) {
-                a.carousel-header {
+                a.accordion-header {
                     color: $light;
                 }
             }
 
-            .carousel-header {
+            .accordion-header {
                 position: relative;
                 display: block;
                 padding: 1rem;
@@ -54,7 +54,7 @@
                 }
             }
 
-            .carousel-content {
+            .accordion-content {
                 position: relative;
                 background: $light;
                 padding: 0;
@@ -80,7 +80,7 @@
 
         &.active {
             > div { 
-                .carousel-content {
+                .accordion-content {
                     height: auto;
                     opacity: 1;
                     padding: 1rem;
@@ -106,7 +106,7 @@
             left: 0;
             bottom: 0;
 
-            > li.carousel-item {
+            > li.accordion-item {
                 display: flex;
                 flex-direction: row;
                 margin-bottom: 0;
@@ -119,7 +119,7 @@
                     align-items: center;
                     transition: width .3s ease;
 
-                    .carousel-header {
+                    .accordion-header {
                         display: flex;
                         width: 100%;
                         height: 100%;
@@ -128,7 +128,7 @@
                         overflow: hidden;
                     }
 
-                    .carousel-content {
+                    .accordion-content {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
@@ -145,7 +145,7 @@
                     > div {
                         width: 50vw;
 
-                        .carousel-content {
+                        .accordion-content {
                             width: 100%;
                             text-wrap: wrap;
                         }
@@ -157,7 +157,7 @@
 }
 
 @include media-breakpoint-up('tablet') {
-    .vertical-carousel-wrapper {
+    .vertical-accordion-wrapper {
         position: relative;
         width: 100%;
         height: calc(90vh - 5rem);

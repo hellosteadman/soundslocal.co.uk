@@ -17,18 +17,18 @@ document.querySelectorAll('.section.timeline-section ol').forEach(
     }
 )
 
-document.querySelectorAll('.carousel').forEach(
-    (carousel) => {
-        carousel.querySelectorAll('a.carousel-header').forEach(
+document.querySelectorAll('.accordion').forEach(
+    (accordion) => {
+        accordion.querySelectorAll('a.accordion-header').forEach(
             (a) => {
-                const li = a.closest('li.carousel-item')
+                const li = a.closest('li.accordion-item')
 
                 a.addEventListener('click',
                     (e) => {
                         const active = li.classList.contains('active')
 
                         e.preventDefault()
-                        carousel.querySelectorAll('li.carousel-item.active').forEach(
+                        accordion.querySelectorAll('li.accordion-item.active').forEach(
                             (other) => {
                                 if (other !== li) {
                                     other.classList.remove('active')
@@ -41,7 +41,7 @@ document.querySelectorAll('.carousel').forEach(
                         } else {
                             li.classList.add('active')
 
-                            li.querySelectorAll('.carousel-content').forEach(
+                            li.querySelectorAll('.accordion-content').forEach(
                                 (content) => {
                                     if (typeof (content.scrollIntoView) === 'function') {
                                         setTimeout(

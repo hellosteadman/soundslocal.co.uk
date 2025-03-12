@@ -20,7 +20,7 @@ A fast, user-first website gives you the best chance of making that first impres
 
 === END INTRO SECTION ===
 
-=== VERTICAL CAROUSEL ===
+=== VERTICAL ACCORDION ===
 
 ## WordPress
 
@@ -74,7 +74,7 @@ All of this to say, if you need something built that doesn't fall into the usual
 
 [cta "https://calendly.com/hellosteadman/chat" size="md"]Let's get started[/cta]
 
-=== END CAROUSEL ===
+=== END ACCORDION ===
 
 === USER-FIRST SECTION ===
 

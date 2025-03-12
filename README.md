@@ -54,6 +54,29 @@ It should trigger when content, templates, JS, or SCSS is changed. I'm sure ther
 
 There are a number of plugins, some considered more important than others:
 
+### `budgie.contrib.accordion`
+
+This allows for marking up sections of copy that should be displayed as a horizontal or vertical accordion. You can mark up a accordion like this:
+
+```md
+=== ACCORDION ===
+
+## Item one
+
+Text
+
+## Item two
+
+Text
+
+## Item three
+
+Text
+
+=== END ACCORDION ===
+
+```
+
 ### `budgie.contrib.bento`
 
 This allows for marking up sections of copy that should be displayed as a bento box of items (similar to a masonry layout). You can mark up a bento box like this:
@@ -82,29 +105,6 @@ Currently, bento boxes can't be nested.
 ### `budgie.contrib.calendly`
 
 Injects CSS and JS tags to handle Calendly links.
-
-### `budgie.contrib.carousel`
-
-This allows for marking up sections of copy that should be displayed as a horizontal or vertical carousel. You can mark up a carousel like this:
-
-```md
-=== CAROUSEL ===
-
-## Item one
-
-Text
-
-## Item two
-
-Text
-
-## Item three
-
-Text
-
-=== END CAROUSEL ===
-
-```
 
 ### `budgie.contrib.cta`
 

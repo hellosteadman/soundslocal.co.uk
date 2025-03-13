@@ -6,7 +6,7 @@ from watchdog.observers import Observer
 from . import logging
 from .app import app
 from .request import Request
-from .response import JsonResponse
+from .response import JsonResponse, error_page
 import click
 import os
 import sys
@@ -42,14 +42,20 @@ class Handler(SimpleHTTPRequestHandler):
             response.request = request
             return response
         except Exception as ex:
-            self.send_response(500)
-            self.send_header('Content-type', 'text/html')
-            self.end_headers()
-            self.wfile.write(
-                ('<p>%s</p>' % str(ex.args[0])).encode('utf-8')
-            )
+            self.handle_error(ex)
 
-            logging.error(ex)
+    def handle_error(self, ex):
+        self.send_response(500)
+        self.send_header('Content-type', 'text/html')
+        self.end_headers()
+        self.wfile.write(
+            error_page(
+                'Internal server error',
+                '<code>%s</code>' % ex.args[0]
+            ).encode('utf-8')
+        )
+
+        logging.error(ex)
 
     def do_HEAD(self):
         response = self.dispatch()
@@ -74,19 +80,22 @@ class Handler(SimpleHTTPRequestHandler):
 
         self.end_headers()
 
-        if inject_reload:
-            body = response.body.decode('utf-8')
-            end_body = body.lower().find('</body>')
+        try:
+            if inject_reload:
+                body = response.body.decode('utf-8')
+                end_body = body.lower().find('</body>')
 
-            if end_body > -1:
-                before_endbody = body[:end_body]
-                after_endbody = body[end_body:]
-                inject = '<script>%s</script>' % HOT_RELOAD_JS
-                body = before_endbody + inject + after_endbody
+                if end_body > -1:
+                    before_endbody = body[:end_body]
+                    after_endbody = body[end_body:]
+                    inject = '<script>%s</script>' % HOT_RELOAD_JS
+                    body = before_endbody + inject + after_endbody
 
-            self.wfile.write(body.encode('utf-8'))
-        else:
-            response.output(self.wfile)
+                self.wfile.write(body.encode('utf-8'))
+            else:
+                response.output(self.wfile)
+        except Exception as ex:
+            self.handle_error(ex)
 
 
 class WatchdogHandler(FileSystemEventHandler):

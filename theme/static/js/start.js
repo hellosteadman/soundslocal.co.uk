@@ -1,6 +1,21 @@
 import {} from 'bootstrap'
 import AOS from 'aos'
 
+window.addEventListener('click',
+    (e) => {
+        const el = e.target.matches('.navbar-toggler') ? e.target : e.target.closest('.navbar-toggler')
+
+        if (!el) {
+            return
+        }
+
+        if (el) {
+            document.body.classList.toggle('main-menu-open')
+        }
+    },
+    false
+)
+
 document.querySelectorAll('.section.timeline-section ol').forEach(
     (ol) => {
         ol.querySelectorAll('li').forEach(

@@ -1,0 +1,59 @@
+body {
+    transition: padding-top .3s ease;
+
+    @include media-breakpoint-down('mobile') {
+        .nav-wrap {
+            width: 100%;
+        }
+    }
+
+    &.main-menu-open {
+        background-color: $dark !important;
+        padding-top: 100vh;
+    }
+
+    @include media-breakpoint-down('mobile') {
+        &.main-menu-open {
+            .main-menu {
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                z-index: 4;
+
+                a.site-brand {
+                    color: #fff !important;
+
+                    svg {
+                        path {
+                            fill: #fff;
+                        }
+                    }
+                }
+
+                * {
+                    --budgie-navbar-color: #fff;
+                    --budgie-nav-link-color: #fff;
+                    --budgie-nav-link-hover-color: #fff;
+                }
+            }
+        }
+
+        .nav {
+            display: block;
+            font-size: 2rem;
+            margin-top: 3rem;
+
+            li.nav-item {
+                display: block;
+                width: 100%;
+
+                a.nav-link {
+                    display: block;
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+}

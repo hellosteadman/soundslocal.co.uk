@@ -65,6 +65,31 @@ class BudgieApp(object):
             )
 
             observer.start()
+        elif context == 'build':
+            filename_404 = os.path.join(
+                settings.THEME_DIR,
+                'templates',
+                '404.html'
+            )
+
+            if os.path.exists(filename_404):
+                @app.on('build')
+                def build_404():
+                    from .request import Request
+                    from .templates import Template
+
+                    template = Template(['404.html'])
+                    html = template.render(
+                        self.get_template_context(
+                            Request('/')
+                        )
+                    )
+
+                    filename_404 = os.path.join(settings.BUILD_DIR, '404.html')
+                    with open(filename_404, 'w') as f:
+                        f.write(html)
+
+                    print('- 404.html')
 
     def tag(self, name: str = ''):
         def decorator(func):

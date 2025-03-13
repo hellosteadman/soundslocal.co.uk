@@ -39,6 +39,7 @@ class Handler(SimpleHTTPRequestHandler):
             if response is None:
                 raise RuntimeError('View returned None instead of a Response')
 
+            response.request = request
             return response
         except Exception as ex:
             self.send_response(500)

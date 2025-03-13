@@ -13,6 +13,7 @@ SCHEMA = {
     'seo_title': '',
     'seo_description': '',
     'robots': None,
+    'heading': '',
     'lede': ''
 }
 

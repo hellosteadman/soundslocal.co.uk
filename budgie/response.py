@@ -1,8 +1,27 @@
+from jinja2.exceptions import TemplateNotFound
 from mimetypes import guess_type
+from .app import app
 from .templates import Template
 import json
 import os
 import shutil
+
+
+def error_page(title, extra=''):
+    css = (
+        'display: flex;',
+        'flex-direction: column;',
+        'align-items: center;',
+        'justify-content: center;',
+        'height: 100vh;',
+        'font-family: sans-serif;'
+    )
+
+    return '<div style="%s"><h1 style="margin-bottom: 0;">%s</h1>%s</div>' % (
+        ' '.join(css),
+        title,
+        extra and ('<p style="margin-bottom: 0;">%s</p>' % extra) or ''
+    )
 
 
 class Response(object):
@@ -58,9 +77,21 @@ class TemplateResponse(Response):
 class Response404(Response):
     def __init__(self):
         super().__init__(
-            content='<h1>Not found</h1>',
+            content=error_page('Page not found'),
             status_code=404
         )
+
+    @property
+    def body(self):
+        try:
+            template = Template(['404.html'])
+            html = template.render(
+                app.get_template_context(self.request)
+            )
+        except TemplateNotFound:
+            return super().body
+        else:
+            return html.encode('utf-8')
 
 
 class ResponseRedirect(Response):

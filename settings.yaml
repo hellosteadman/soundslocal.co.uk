@@ -23,3 +23,5 @@ menus:
       text: Home
     - path: /services/
       text: Services
+    - path: /projects/
+      text: Projects

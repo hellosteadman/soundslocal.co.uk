@@ -61,6 +61,14 @@ class Collection(object):
             )
         )
 
+    def build_url(self, path):
+        if self.__custom_path:
+            return app.build_absolute_uri(
+                '/%s/%s/' % (self.path, path)
+            )
+
+        return app.build_absolute_uri('/%s/' % path)
+
 
 class ModelBase(object):
     def __init__(self, collection, filename):
@@ -119,3 +127,6 @@ class ModelBase(object):
 
         self.body = app.transform('article_body', body)
         self.collection = collection
+
+    def get_absolute_url(self):
+        return self.collection.build_url(self.slug)

@@ -73,16 +73,16 @@ A singing group open to adults who want to come together and sing 90s songs for 
 
 ![Men's group header image](img/frontpage-mensgroup.jpg)
 
-Starting in Stirchley, this men’s group provides a judgement-free weekly talking session.
+Providing a judgement-free weekly talking session to boost men's mental health and reduce isolation. Based at The Huz Hazelwell, Stirchley.
 
-The aim is to combatt toxic masculinity and provide a supportive space for men to learn and grow.
+More info coming soon
 
 ### The Speakeasy Fund
 ![Speakeasy Fund header image](img/frontpage-speakeasy.jpg)
 
-Anyone looking to gather people together to discuss a shared idea can apply to the fund to pay for food and drink for the night.
+Anyone looking to gather people together to discuss an idea that'll improve lives can apply to the fund, and we'll pay for food and drink for the night.
 
-The idea is to make safe and inclusive dialogue accessible to all.
+More info coming soon
 
 === END GRID OF 3 PROJECTS ===
 

@@ -88,6 +88,10 @@
 
     @include media-breakpoint-up('tablet') {
         &.horizontal {
+            margin-left: auto;
+            margin-right: auto;
+            width: 60%;
+
             > li.accordion-item {
                 > div {
                     flex-direction: row;
@@ -106,8 +110,15 @@
                     }
 
                     .accordion-content {
-                        width: 75%;
-                        flex-basis: 75%;
+                        width: 100%;
+                        flex-basis: 100%;
+                    }
+
+                    &:has(img) {
+                        .accordion-content {
+                            width: 75%;
+                            flex-basis: 75%;
+                        }
                     }
                 }
             }

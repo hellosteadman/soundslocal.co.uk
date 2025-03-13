@@ -19,9 +19,15 @@ SCHEMA = {
 
 
 class Collection(object):
+    def __init__(self, path=None):
+        self.path = path
+        self.__custom_path = not not path
+
     def __set_name__(self, owner, name):
         self.model = owner
-        self.path = owner.__name__.lower() + 's'
+
+        if not self.path:
+            self.path = owner.__name__.lower() + 's'
 
     def all(self):
         path = os.path.join(settings.CONTENT_DIR, self.path)

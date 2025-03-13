@@ -21,3 +21,5 @@ menus:
   main:
     - path: /
       text: Home
+    - path: /services/
+      text: Services

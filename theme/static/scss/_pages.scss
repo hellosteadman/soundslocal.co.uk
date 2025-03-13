@@ -105,9 +105,8 @@ body.page {
                     text-align: center;
                 }
 
-                &.skill-section {
-                    background: $dark;
-                    color: $light;
+                &.skill-section, &.offer-section {
+                    background: $honey;
                     padding: 1rem;
                     border-radius: $border-radius;
                     position: relative;
@@ -121,6 +120,20 @@ body.page {
                     img {
                         width: 100%;
                         margin: .5rem 0;
+                    }
+
+                    h2 {
+                        font-size: 1.75rem;
+                        font-weight: $font-weight-bolder;
+
+                        a {
+                            color: $dark;
+                            text-decoration: none;
+                        }
+                    }
+
+                    p:last-child {
+                        margin-bottom: 0;
                     }
 
                     @include media-breakpoint-up('tablet') {
@@ -138,6 +151,11 @@ body.page {
                             object-position: center;
                         }
                     }
+                }
+
+                &.skill-section {
+                    background: $dark;
+                    color: $light;
                 }
             }
         }

@@ -50,20 +50,21 @@ class BudgieApp(object):
 
         self.context = context
 
-        observer = Observer()
-        observer.schedule(
-            ContentHandler(),
-            path=settings.CONTENT_DIR,
-            recursive=True
-        )
+        if context == 'serve':
+            observer = Observer()
+            observer.schedule(
+                ContentHandler(),
+                path=settings.CONTENT_DIR,
+                recursive=True
+            )
 
-        observer.schedule(
-            TemplateHandler(),
-            path=os.path.join(settings.THEME_DIR, 'templates'),
-            recursive=True
-        )
+            observer.schedule(
+                TemplateHandler(),
+                path=os.path.join(settings.THEME_DIR, 'templates'),
+                recursive=True
+            )
 
-        observer.start()
+            observer.start()
 
     def tag(self, name: str = ''):
         def decorator(func):

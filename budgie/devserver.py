@@ -26,7 +26,7 @@ class Handler(SimpleHTTPRequestHandler):
     def log_message(self, *args, **kwargs):
         pass
 
-    def do_GET(self):
+    def dispatch(self):
         path = urlparse(self.path).path
 
         if not path.startswith('/'):
@@ -39,30 +39,7 @@ class Handler(SimpleHTTPRequestHandler):
             if response is None:
                 raise RuntimeError('View returned None instead of a Response')
 
-            self.send_response(response.status_code)
-            inject_reload = False
-
-            for header, value in response.headers.items():
-                if header.lower() == 'content-type':
-                    if 'text/html' in value:
-                        inject_reload = True
-                self.send_header(header, value)
-
-            self.end_headers()
-
-            if inject_reload:
-                body = response.body.decode('utf-8')
-                end_body = body.lower().find('</body>')
-
-                if end_body > -1:
-                    before_endbody = body[:end_body]
-                    after_endbody = body[end_body:]
-                    inject = '<script>%s</script>' % HOT_RELOAD_JS
-                    body = before_endbody + inject + after_endbody
-
-                self.wfile.write(body.encode('utf-8'))
-            else:
-                response.output(self.wfile)
+            return response
         except Exception as ex:
             self.send_response(500)
             self.send_header('Content-type', 'text/html')
@@ -72,6 +49,43 @@ class Handler(SimpleHTTPRequestHandler):
             )
 
             logging.error(ex)
+
+    def do_HEAD(self):
+        response = self.dispatch()
+        self.send_response(response.status_code)
+
+        for header, value in response.headers.items():
+            self.send_header(header, value)
+
+        self.end_headers()
+
+    def do_GET(self):
+        response = self.dispatch()
+        self.send_response(response.status_code)
+        inject_reload = False
+
+        for header, value in response.headers.items():
+            if header.lower() == 'content-type':
+                if 'text/html' in value:
+                    inject_reload = True
+
+            self.send_header(header, value)
+
+        self.end_headers()
+
+        if inject_reload:
+            body = response.body.decode('utf-8')
+            end_body = body.lower().find('</body>')
+
+            if end_body > -1:
+                before_endbody = body[:end_body]
+                after_endbody = body[end_body:]
+                inject = '<script>%s</script>' % HOT_RELOAD_JS
+                body = before_endbody + inject + after_endbody
+
+            self.wfile.write(body.encode('utf-8'))
+        else:
+            response.output(self.wfile)
 
 
 class WatchdogHandler(FileSystemEventHandler):

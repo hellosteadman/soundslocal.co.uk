@@ -10,6 +10,10 @@ THEME_DIR = os.path.join(BASE_DIR, 'theme')
 PLUGINS = []
 DOMAIN = ''
 FRONTEND_PACKAGES = []
+
+BLOG_HEADER = 'Blog'
+BLOG_DESCRIPTION = ''
+
 MENUS = {
     'main': [
         {
@@ -92,6 +96,9 @@ if os.path.exists(filename):
         MENUS.update(menus)
 
     del menus
+
+    BLOG_HEADER = settings.pop('blog_header', BLOG_HEADER)
+    BLOG_DESCRIPTION = settings.pop('blog_description', BLOG_DESCRIPTION)
 
     for key in settings.keys():
         raise ConfigError('Unrecognised setting: \'%s\'.' % key)

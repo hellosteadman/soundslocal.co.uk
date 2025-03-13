@@ -2,7 +2,7 @@ from budgie import app, settings
 from budgie.models import ModelBase, Collection
 from budgie.request import Request
 from budgie.templates import Template
-from budgie.views import ModelView
+from budgie.views import DetailView
 import os
 
 
@@ -10,13 +10,13 @@ class Page(ModelBase):
     objects = Collection()
 
 
-@app.route('*/', 'page_detail', priority=0)
-class PageView(ModelView):
+@app.route('*/', 'page_detail', priority=100)
+class PageView(DetailView):
     model = Page
 
 
 @app.route('', 'index')
-class IndexView(ModelView):
+class IndexView(DetailView):
     template_name = 'index.html'
     model = Page
 

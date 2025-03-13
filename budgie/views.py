@@ -32,7 +32,7 @@ class TemplateView(View):
         )
 
 
-class ModelView(TemplateView):
+class DetailView(TemplateView):
     def get_query_args(self):
         return {
             'slug': self.args[0]

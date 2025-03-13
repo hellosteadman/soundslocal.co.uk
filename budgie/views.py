@@ -32,6 +32,42 @@ class TemplateView(View):
         )
 
 
+class ListView(TemplateView):
+    def get_query_args(self):
+        return {}
+
+    def get_object_list(self):
+        if not hasattr(self, 'object_list'):
+            if not hasattr(self, 'model'):
+                raise ConfigError('model not defined')
+
+            self.object_list = self.model.objects.filter(
+                **self.get_query_args()
+            )
+
+        return self.object_list
+
+    def get_template_names(self):
+        template_names = [self.model.__name__.lower() + '_list.html']
+
+        if hasattr(self, 'template_name'):
+            template_names.insert(0, self.template_name)
+        elif hasattr(self, 'template_names'):
+            for name in reversed(self.template_names):
+                template_names.insert(0, name)
+
+        if not any(template_names):
+            raise ConfigError('template_names not defined')
+
+        return template_names
+
+    def get_render_context(self):
+        return {
+            **super().get_render_context(),
+            'object_list': self.get_object_list()
+        }
+
+
 class DetailView(TemplateView):
     def get_query_args(self):
         return {

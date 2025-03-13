@@ -151,13 +151,11 @@ class BudgieApp(object):
                     args = match.groups()
                     return route(request, *args)
 
-            raise NotFoundError()
-
         except NotFoundError:
             if not request.path.endswith('/'):
                 return ResponseRedirect(request.path + '/')
 
-            return Response404()
+        return Response404()
 
     def build_absolute_uri(self, path: str):
         if not path.startswith('/'):

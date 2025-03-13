@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block seo_title %}{{ object.seo_title or object.title }}{% endblock %}
+{% block body_classes %}post{% endblock %}
+
+{% block body %}
+    <article>
+        <header class="hero padding-bottom-tablet-0">
+            <div class="container">
+                <h1 class="display-1 font-weight-bolder" data-aos="fade-up">{{ object.heading }}</h1>
+
+                {% if object.lede %}
+                    <p class="display-3 font-weight-normal" data-aos="fade-up" data-aos-delay="300">{{ object.lede }}</p>
+                {% endif %}
+
+                {% if object.cta %}
+                    <div data-aos="fade-up" data-aos-delay="{% if object.lede %}600{% else %}300{% endif %}">{{ object.cta }}</div>
+                {% endif %}
+
+                {% if object.featured_image %}
+                    <img alt="" role="presentation" src="{{ object.featured_image.url() }}" class="featured img-fluid">
+                {% endif %}
+            </div>
+        </header>
+
+        <div class="container">
+            <section class="body show-flex flex-column justify-content-center">{{ object.body }}</section>
+        </div>
+    </article>
+{% endblock body %}

@@ -31,6 +31,7 @@ class BudgieApp(object):
 
     def start(self, context: str):
         import_module('budgie.content.pages')
+        import_module('budgie.content.blog')
 
         if not self.domain:
             raise RuntimeError('Unable to determine website domain.')

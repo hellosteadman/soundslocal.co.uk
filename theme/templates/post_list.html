@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block seo_title %}Blog{% endblock %}
+{% block body_classes %}post{% endblock %}
+
+{% block body %}
+    <header class="hero">
+        <div class="container">
+            <h1 class="display-1 font-weight-bolder" data-aos="fade-up">{{ BLOG_HEADER }}</h1>
+
+            {% if BLOG_DESCRIPTION %}
+                <p class="display-3 font-weight-normal" data-aos="fade-up" data-aos-delay="300">{{ BLOG_DESCRIPTION }}</p>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="container">
+        {% for object in object_list %}
+            <a href="{{ object.get_absolute_url() }}">{{ object.title }}</a>
+        {% endfor %}
+    </div>
+{% endblock body %}

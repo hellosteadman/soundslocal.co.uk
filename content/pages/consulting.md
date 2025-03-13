@@ -28,7 +28,7 @@ If you're excited by tech but don't know the ins-and-outs, I'd be delighted to s
 
 === END BIO SECTION ===
 
-=== ACCORDION ===
+=== SKILL SECTION ===
 
 ## Digital strategy
 
@@ -42,6 +42,10 @@ I can
 - Translate technical jargon into clear, actionable tasks
 - Ensure digital strategy aligns with your organisational goals
 
+=== END SKILL SECTION ===
+
+=== SKILL SECTION ===
+
 ## Project management
 
 ![Agile](img/consulting-agile.jpg)
@@ -53,6 +57,10 @@ I can
 - Help define a clear, realistic roadmap for development
 - Identify the right tools and platforms for your needs
 - Support teams in adopting best practices without unnecessary complexity
+
+=== END SKILL SECTION ===
+
+=== SKILL SECTION ===
 
 ## AI and automation
 
@@ -66,6 +74,10 @@ I can help you
 - Implement AI tools to enhance communication and outreach
 - Ensure AI is used responsibly, with clear human oversight
 
+=== END SKILL SECTION ===
+
+=== SKILL SECTION ===
+
 ## Training
 
 ![Training](img/consulting-training.jpg)
@@ -78,7 +90,7 @@ I'll help you
 - Train your team on using new tools effectively
 - Simplify complex systems into intuitive processes
 
-=== END ACCORDION ===
+=== END SKILL SECTION ===
 
 === CTA SECTION ===
 

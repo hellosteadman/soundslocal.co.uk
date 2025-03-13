@@ -104,6 +104,41 @@ body.page {
                 &.cta-section {
                     text-align: center;
                 }
+
+                &.skill-section {
+                    background: $dark;
+                    color: $light;
+                    padding: 1rem;
+                    border-radius: $border-radius;
+                    position: relative;
+                    overflow: hidden;
+                    margin-bottom: 1rem;
+
+                    &:last-child {
+                        margin-bottom: 3rem;
+                    }
+
+                    img {
+                        width: 100%;
+                        margin: .5rem 0;
+                    }
+
+                    @include media-breakpoint-up('tablet') {
+                        padding-left: 25%;
+                        width: 90%;
+
+                        img {
+                            margin: 0;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 25%;
+                            height: 100%;
+                            object-fit: cover;
+                            object-position: center;
+                        }
+                    }
+                }
             }
         }
     }

@@ -176,7 +176,7 @@ body.frontpage {
             height: 100%;
             display: flex;
             flex-direction: column;
-            background: #E9E5F0;
+            background: $white;
             border-radius: $border-radius-sm;
 
             p:has(img) {

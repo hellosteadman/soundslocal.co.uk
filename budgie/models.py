@@ -24,6 +24,7 @@ class Collection(object):
         self.path = path
         self.__custom_path = not not path
         self.__slugs = []
+        self.__obj_cache = None
 
     def __set_name__(self, owner, name):
         self.model = owner
@@ -32,6 +33,10 @@ class Collection(object):
             self.path = owner.__name__.lower() + 's'
 
     def all(self):
+        if self.__obj_cache is not None:
+            return self.__obj_cache
+
+        self.__obj_cache = []
         path = os.path.join(settings.CONTENT_DIR, self.path)
 
         for name in glob('*.md', root_dir=path):
@@ -44,7 +49,9 @@ class Collection(object):
                 )
 
             self.__slugs.append(obj.slug)
-            yield obj
+            self.__obj_cache.append(obj)
+
+        return self.__obj_cache
 
     def filter(self, **kwargs):
         for obj in self.all():

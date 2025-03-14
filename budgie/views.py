@@ -70,9 +70,7 @@ class ListView(TemplateView):
 
 class DetailView(TemplateView):
     def get_query_args(self):
-        return {
-            'slug': self.args[0]
-        }
+        return dict(slug=self.args[0])
 
     def get_object(self):
         if not hasattr(self, 'object'):

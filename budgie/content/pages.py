@@ -21,9 +21,7 @@ class IndexView(DetailView):
     model = Page
 
     def get_query_args(self):
-        return {
-            'slug': 'index'
-        }
+        return dict(slug='index')
 
 
 @app.on('build')

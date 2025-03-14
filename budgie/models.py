@@ -59,9 +59,7 @@ class Collection(object):
 
             for key, criteria in kwargs.items():
                 comparer = Comparer.infer(key)
-                value = getattr(obj, comparer.key)
-
-                if not comparer.compare(value, criteria):
+                if not comparer.compare(obj, criteria):
                     ignore = True
                     break
 

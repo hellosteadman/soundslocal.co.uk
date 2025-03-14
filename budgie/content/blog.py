@@ -3,6 +3,8 @@ from budgie.models import ModelBase, Collection
 from budgie.request import Request
 from budgie.templates import Template
 from budgie.views import ListView, DetailView
+from datetime import datetime
+from dateutil.parser import parse as parse_date
 import os
 
 
@@ -14,10 +16,15 @@ class Post(ModelBase):
 class PostListView(ListView):
     model = Post
 
+    def get_query_args(self):
+        return dict(
+            published__lte=datetime.now()
+        )
+
     def get_render_context(self):
         return {
             **super().get_render_context(),
-            'BLOG_HEADER': settings.BLOG_HEADER,
+            'BLOG_HEADING': settings.BLOG_HEADING,
             'BLOG_DESCRIPTION': settings.BLOG_DESCRIPTION
         }
 
@@ -61,7 +68,7 @@ def build_posts():
 
     template = Template(['post_list.html'])
     context = {
-        'BLOG_HEADER': settings.BLOG_HEADER,
+        'BLOG_HEADING': settings.BLOG_HEADING,
         'BLOG_DESCRIPTION': settings.BLOG_DESCRIPTION,
         'object_list': object_list,
         'request': Request('/blog/')
@@ -74,3 +81,20 @@ def build_posts():
     with open(filename, 'w') as f:
         f.write(html)
         print('.', filename[len(settings.BUILD_DIR) + 1:])
+
+
+@app.transformer('article_schema')
+def transform_schema(schema):
+    schema['published'] = None
+    schema['tags'] = []
+    return schema
+
+
+@app.transformer('article_property', prop=('tags'))
+def transform_tags(value, prop):
+    return tuple(sorted(set(value)))
+
+
+@app.transformer('article_property', prop=('published'))
+def transform_published(value, prop):
+    return parse_date(value)

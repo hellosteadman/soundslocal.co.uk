@@ -11,7 +11,7 @@ PLUGINS = []
 DOMAIN = ''
 FRONTEND_PACKAGES = []
 
-BLOG_HEADER = 'Blog'
+BLOG_HEADING = 'Blog'
 BLOG_DESCRIPTION = ''
 
 MENUS = {
@@ -97,7 +97,7 @@ if os.path.exists(filename):
 
     del menus
 
-    BLOG_HEADER = settings.pop('blog_header', BLOG_HEADER)
+    BLOG_HEADING = settings.pop('blog_heading', BLOG_HEADING)
     BLOG_DESCRIPTION = settings.pop('blog_description', BLOG_DESCRIPTION)
 
     for key in settings.keys():

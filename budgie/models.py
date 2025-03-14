@@ -9,6 +9,7 @@ import re
 
 META_LINE_EX = re.compile(r'^(\w+): (.+)$')
 SCHEMA = {
+    'slug': '',
     'title': '',
     'seo_title': '',
     'seo_description': '',
@@ -22,6 +23,7 @@ class Collection(object):
     def __init__(self, path=None):
         self.path = path
         self.__custom_path = not not path
+        self.__slugs = []
 
     def __set_name__(self, owner, name):
         self.model = owner
@@ -34,7 +36,15 @@ class Collection(object):
 
         for name in glob('*.md', root_dir=path):
             filename = os.path.join(path, name)
-            yield self.model(self, filename)
+            obj = self.model(self, filename)
+
+            if obj.slug in self.__slugs:
+                raise ContentDefinitionError(
+                    'Slug \'%s\' already in use' % obj.slug
+                )
+
+            self.__slugs.append(obj.slug)
+            yield obj
 
     def filter(self, **kwargs):
         for obj in self.all():
@@ -112,9 +122,10 @@ class ModelBase(object):
 
                     body += line
 
-        self.slug = os.path.splitext(
-            os.path.split(filename)[-1]
-        )[0]
+        if not self.slug:
+            self.slug = os.path.splitext(
+                os.path.split(filename)[-1]
+            )[0]
 
         if not self.title:
             if self.heading:

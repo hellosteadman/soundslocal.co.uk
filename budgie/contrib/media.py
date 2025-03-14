@@ -79,7 +79,7 @@ class File(object):
 
             if not os.path.exists(copypath):
                 shutil.copyfile(fullpath, copypath)
-                print('-', 'media/%s' % basepath)
+                print('.', 'media/%s' % basepath)
 
         return '/media/%s' % self.__filename
 

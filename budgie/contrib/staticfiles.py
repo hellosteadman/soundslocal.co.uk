@@ -34,7 +34,7 @@ def compile_js(start_file):
             source_map=True
         )
 
-        print('-', 'static/js/%s' % output_basename)
+        print('.', 'static/js/%s' % output_basename)
         cache['js'][start_file] = '/static/js/%s' % output_basename
 
     return cache['js'][start_file]
@@ -58,7 +58,7 @@ def compile_scss(start_file):
             source_map=True
         )
 
-        print('-', 'static/css/%s' % output_basename)
+        print('.', 'static/css/%s' % output_basename)
         cache['css'][start_file] = '/static/css/%s' % output_basename
 
     return cache['css'][start_file]
@@ -181,7 +181,7 @@ def copy_assets(root_dir=STATIC_DIR):
         )
 
         shutil.copyfile(fullpath, copypath)
-        print('-', 'static/%s' % basepath)
+        print('.', 'static/%s' % basepath)
 
 
 class WatchdogHandler(FileSystemEventHandler):

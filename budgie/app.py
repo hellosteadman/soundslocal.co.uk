@@ -90,7 +90,7 @@ class BudgieApp(object):
                     with open(filename_404, 'w') as f:
                         f.write(html)
 
-                    print('- 404.html')
+                    print('. 404.html')
 
     def tag(self, name: str = ''):
         def decorator(func):

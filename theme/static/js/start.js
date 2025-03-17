@@ -1,5 +1,6 @@
 import {} from 'bootstrap'
 import AOS from 'aos'
+import imagesLoaded from 'imagesloaded'
 
 window.addEventListener('click',
     (e) => {
@@ -82,11 +83,16 @@ document.querySelectorAll('.accordion').forEach(
     }
 )
 
-AOS.init(
-    {
-        offset: 80,
-        duration: 1000,
-        once: true,
-        easing: 'ease'
+imagesLoaded(
+    document.body,
+    () => {
+        AOS.init(
+            {
+                offset: 80,
+                duration: 1000,
+                once: true,
+                easing: 'ease'
+            }
+        )
     }
 )

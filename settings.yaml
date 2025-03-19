@@ -17,6 +17,9 @@ frontend_packages:
   - bootstrap-icons
   - imagesloaded
 
+blog_heading: This is the blog
+blog_description: No-one reads digital agencies' blog posts, but we insist on writing them regardless.
+
 menus:
   main:
     - path: /
@@ -25,3 +28,5 @@ menus:
       text: Services
     - path: /projects/
       text: Projects
+    - path: /blog/
+      text: Blog

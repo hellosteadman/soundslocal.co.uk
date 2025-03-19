@@ -4,9 +4,18 @@
 
 {% block body %}
     <article>
-        <header class="hero padding-bottom-tablet-0">
+        <header class="hero">
             <div class="container">
-                <h1 class="display-1 font-weight-bolder" data-aos="fade-up">{{ object.heading }}</h1>
+                {% if object.published %}
+                    <p class="margin-0 text-nowrap">
+                        <i class="bi bi-calendar"></i>
+                        {{ object.published.date() }}
+                    </p>
+                {% endif %}
+
+                <h1 class="display-1 font-weight-bolder" data-aos="fade-up">
+                    <a href="{{ object.get_absolute_url }}">{{ object.heading }}</a>
+                </h1>
 
                 {% if object.lede %}
                     <p class="display-3 font-weight-normal" data-aos="fade-up" data-aos-delay="300">{{ object.lede }}</p>

@@ -1,0 +1,55 @@
+body.post {
+    .hero {
+        padding: 3rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        text-wrap: balance;
+
+        h1 {
+            color: darken(#9E363F, 10);
+
+            a {
+                color: darken(#9E363F, 10);
+                text-decoration: none;
+            }
+        }
+    }
+
+    main {
+        position: relative;
+
+        section.body {
+            margin: 0 auto 3rem;
+            font-size: 1.25rem;
+            font-weight: normal;
+
+            @include media-breakpoint-up('tablet') {
+                width: 60%;
+            }
+
+            blockquote {
+                border-left: 2px solid $dark;
+                marign-bottom: 1rem;
+                padding-left: calc(1rem + 2px);
+            }
+
+            h2, h3 {
+                font-weight: $font-weight-bolder;
+                letter-spacing: -.08rem;
+            }
+
+            p {
+                + h2, + h3 {
+                    margin-top: 2rem;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

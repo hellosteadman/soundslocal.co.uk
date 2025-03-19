@@ -14,8 +14,23 @@
     </header>
 
     <div class="container">
-        {% for object in object_list %}
-            <a href="{{ object.get_absolute_url() }}">{{ object.title }}</a>
-        {% endfor %}
+        <div class="grid justify-content-center">
+            {% for object in object_list %}
+                <a href="{{ object.get_absolute_url() }}" class="show-flex cell-tablet-4 text-dark text-decoration-none margin-bottom-2 rounded overflow-hidden" data-aos="fade-up">
+                    <div class="background-white width-100 height-100">
+                        {% if object.featured_image %}
+                            <img alt="" src="{{ object.featured_image.url() }}" role="presentation" class="img-fluid">
+                        {% else %}
+                            <img alt="" src="{% media 'img/home-banner.jpg' %}" role="presentation" class="img-fluid">
+                        {% endif %}
+
+                        <div class="padding-3">
+                            <h2 class="h4 font-weight-bolder margin-0">{{ object.title }}</h2>
+                            {% if object.lede %}{{ object.lede|markdown }}{% endif %}
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
     </div>
 {% endblock body %}

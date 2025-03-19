@@ -32,9 +32,9 @@ def section_transformer(value):
     section_stack = []
 
     for line in value.splitlines():
-        line = line.strip()
+        stripped_line = line.strip()
 
-        if match := END_SECTION_EX.match(line):
+        if match := END_SECTION_EX.match(stripped_line):
             if not section_stack:
                 raise Exception('No open section to close')
 
@@ -54,7 +54,7 @@ def section_transformer(value):
 
             continue
 
-        if match := START_SECTION_EX.match(line):
+        if match := START_SECTION_EX.match(stripped_line):
             groups = match.groups()
             section = {
                 'slug': groups[0].lower().strip() if groups[0] else None,

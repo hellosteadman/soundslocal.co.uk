@@ -6,12 +6,19 @@
     <article>
         <header class="hero">
             <div class="container">
-                {% if object.published %}
-                    <p class="margin-0 text-nowrap">
-                        <i class="bi bi-calendar"></i>
-                        {{ object.published.date() }}
-                    </p>
-                {% endif %}
+                <p class="margin-0 text-nowrap" data-aos="fade-up">
+                    {% if object.published %}
+                        <span>
+                            <i class="bi bi-calendar"></i>
+                            {{ object.published.strftime('%B %d, %Y') }}
+                        </span>
+                    {% endif %}
+
+                    <span{% if object.published %} class="margin-start-1"{% endif %}>
+                        <i class="bi bi-person-fill"></i>
+                        Mark Steadman
+                    </span>
+                </p>
 
                 <h1 class="display-1 font-weight-bolder" data-aos="fade-up">
                     <a href="{{ object.get_absolute_url }}">{{ object.heading }}</a>

@@ -13,12 +13,10 @@
             <h1 class="display-1 font-weight-bolder margin-bottom-2 margin-bottom-tablet-4" data-aos="fade-up">{{ object.heading }}</h1>
 
             {% if object.lede %}
-                <p class="display-3 font-weight-normal margin-bottom-5 margin-bottom-tablet-0" data-aos="fade-up" data-aos-delay="300">{{ object.lede }}</p>
+                <p class="display-3 font-weight-normal margin-bottom-5 margin-bottom-tablet-0 lede" data-aos="fade-up" data-aos-delay="300">{{ object.lede }}</p>
             {% endif %}
         </div>
     </div>
 
-    <div class="background-honey padding-bottom-3">
-        <div class="container">{{ object.body }}</div>
-    </div>
+    {{ object.body }}
 {% endblock body %}

@@ -1,5 +1,6 @@
 body.frontpage {
-    background: #FFF8E8;
+    background: #375639;
+    color: $light;
 
     .main-menu {
         position: absolute;
@@ -8,14 +9,8 @@ body.frontpage {
         left: 0;
         z-index: 4;
 
-        a.site-brand {
-            color: #fff !important;
-
-            svg {
-                path {
-                    fill: #fff;
-                }
-            }
+        svg path {
+            fill: #fff;
         }
 
         * {
@@ -27,6 +22,36 @@ body.frontpage {
 
     .hero {
         padding: 5rem 0 3rem 0;
+
+        &:after {
+            display: block;
+            position: absolute;
+            top: 25%;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(0, #375639 0%, #37563900 100%);
+            content: ' ';
+            z-index: 2;
+        }
+    }
+
+    p.lede {
+        @include media-breakpoint-up('laptop') {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 60vw;
+            text-wrap: balance;
+        }
+    }
+
+    .features-grid {
+        margin: 0 1rem;
+
+        @include media-breakpoint-up('laptop') {
+            margin: 0 auto;
+            max-width: 70vw;
+        }
     }
 
     .features-cell {
@@ -37,7 +62,7 @@ body.frontpage {
         h2, h3 {
             a {
                 text-decoration: none;
-                color: $accent;
+                color: $honey;
             }
         }
 
@@ -52,9 +77,10 @@ body.frontpage {
             flex-direction: column;
             background: $feature-bg;
             border-radius: $border-radius-sm;
-            border-bottom: .6rem solid darken($feature-bg, 10);
+            box-shadow: 0 .6rem .6rem #00000044;
             position: relative;
             overflow: hidden;
+            text-wrap: balance;
         }
 
         h2, h3, p {
@@ -68,17 +94,6 @@ body.frontpage {
             font-weight: $font-weight-bolder;
             letter-spacing: -.08rem;
             color: $accent;
-
-            i {
-                position: absolute;
-                z-index: 1;
-                top: 1rem;
-                right: -4rem;
-                font-size: 9rem;
-                color: #fff;
-                opacity: .5;
-                pointer-events: none;
-            }
         }
 
         p {
@@ -86,6 +101,7 @@ body.frontpage {
 
             a {
                 text-decoration: none;
+                text-wrap: nowrap;
             }
         }
     }
@@ -98,12 +114,20 @@ body.frontpage {
     }
 
     .bio-section, .impact-section {
-        margin-bottom: 3rem;
+        margin: 3rem 1rem;
         gap: 2rem;
+
+        @include media-breakpoint-up('tablet') {
+            margin: 3rem auto;
+
+            h2 {
+                margin-bottom: 2rem;
+            }
+        }
 
         .section {
             > p {
-                font-size: 1.25rem;
+                font-size: 1.5rem;
                 font-weight: 300;
             }
         }
@@ -117,10 +141,13 @@ body.frontpage {
 
         @include media-breakpoint-up('tablet') {
             display: flex;
+            align-items: center;
+            margin-top: 0;
 
             .section {
                 flex: 0 0 60%;
                 order: 1;
+                padding: 0 6rem;
             }
 
             p > img {
@@ -135,10 +162,23 @@ body.frontpage {
                 margin-bottom: -3rem;
             }
         }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .bio-section {
+        @include media-breakpoint-up('tablet') {
+            p > img {
+                margin: 0 6rem 0 auto;
+            }
+        }
     }
 
     .impact-section {
-        margin: 5rem 0 0;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
 
         @include media-breakpoint-up('tablet') {
             gap: 3rem;
@@ -151,6 +191,10 @@ body.frontpage {
             > p:has(img) {
                 flex: 0 0 25%;
                 order: 1;
+            }
+
+            p > img {
+                margin: 0 0 0 6rem;
             }
         }
     }
@@ -165,9 +209,18 @@ body.frontpage {
         }
     }
 
-    .projects-grid * {
-        --budgie-gutter-x: 2.5rem;
-        --budgie-gutter-y: 2.5rem;
+    .projects-grid {
+        margin: 0 1rem;
+
+        @include media-breakpoint-up('tablet') {
+            margin: 0 auto;
+            max-width: 80vw;
+        }
+
+        * {
+            --budgie-gutter-x: 2.5rem;
+            --budgie-gutter-y: 2.5rem;
+        }
     }
 
     .projects-cell {
@@ -176,8 +229,13 @@ body.frontpage {
             height: 100%;
             display: flex;
             flex-direction: column;
-            background: $white;
+            background: $feature-bg;
             border-radius: $border-radius-sm;
+
+            @include media-breakpoint-up('tablet') {
+                text-align: center;
+                text-wrap: balance;
+            }
 
             p:has(img) {
                 order: -1;
@@ -185,6 +243,8 @@ body.frontpage {
                 img {
                     margin: -1rem 0 0 -1rem;
                     width: calc(100% + 2rem);
+                    object-fit: cover;
+                    object-position: center;
                 }
             }
 
@@ -194,18 +254,40 @@ body.frontpage {
 
                 a {
                     text-decoration: none;
-                    color: $black;
+                    color: $white;
                 }
             }
 
             p > a {
                 font-weight: $font-weight-bold;
                 text-decoration: none;
+                text-wrap: nowrap;
             }
 
             p:last-child {
                 margin-bottom: 0;
             }
+        }
+
+        @include media-breakpoint-up('tablet') {
+            &:first-child {
+                rotate: -3deg;
+                translate: 0 .5rem;
+            }
+
+            &:last-child {
+                rotate: 3deg;
+                translate: 0 .5rem;
+            }
+        }
+    }
+
+    .cta-section {
+        margin: 0 1rem;
+
+        @include media-breakpoint-up('tablet') {
+            margin: 0 auto;
+            max-width: 40vw;
         }
     }
 }

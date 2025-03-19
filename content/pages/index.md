@@ -1,23 +1,23 @@
 seo_title: Web design for social enterprises in Birmingham
-lede: Sounds Local provides hassle-free digital services to good causes and puts its profits into supporting projects that connect people in-person.
+lede: Sounds Local provides hassle-free digital services to good causes and puts its profits into projects that connect people in-person.
 
 # Digital support for small teams that make a big difference.
 
 === GRID OF 3 FEATURES ===
 
-### [:globe: Website design & build](/websites/)
+### [Website design & build](/websites/)
 
 Hand-crafted WordPress, Wagtail, Ghost, or custom websites designed and built to order.
 
 [Find out more :arrow-right-circle-fill:](/websites/)
 
-### [:mic: Digital content production](/production/)
+### [Digital content production](/production/)
 
 Publish meetings in podcast or video form so members and stakeholders are kept in the loop.
 
 [Find out more :arrow-right-circle-fill:](/production/)
 
-### [:grid-fill: Technical consulting](/consulting/)
+### [Technical consulting](/consulting/)
 
 Get help navigating complex digital projects, from a tech expert who also speaks fluent human.
 

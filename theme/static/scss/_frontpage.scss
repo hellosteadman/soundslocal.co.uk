@@ -36,6 +36,15 @@ body.frontpage {
         }
     }
 
+    p.lede {
+        @include media-breakpoint-up('laptop') {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 60vw;
+            text-wrap: balance;
+        }
+    }
+
     .features-grid {
         margin: 0 1rem;
 

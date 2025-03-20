@@ -118,10 +118,10 @@ body.frontpage {
         gap: 2rem;
 
         @include media-breakpoint-up('tablet') {
-            margin: 3rem auto;
+            margin: 6rem auto;
 
             h2 {
-                margin-bottom: 2rem;
+                margin-bottom: 1rem;
             }
         }
 

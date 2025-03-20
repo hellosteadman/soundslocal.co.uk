@@ -164,6 +164,10 @@ Handles serving media files via the dev server, and building them as part of the
 
 Parses Markdown for links to oEmbeddable resources, like YouTube videos.
 
+### `budgie.contrib.plausible`
+
+Injects JS tags to track traffic via Plausible.io.
+
 ### `budgie.contrib.sections`
 
 Works similarly to `budgie.contrib.grids`, but takes any markup and wraps it in a `<div class="section">`.

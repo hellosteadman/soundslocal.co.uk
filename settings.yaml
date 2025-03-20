@@ -10,6 +10,7 @@ budgie_plugins:
   - budgie.contrib.cta
   - budgie.contrib.oembed
   - budgie.contrib.calendly
+  - budgie.contrib.plausible
 
 frontend_packages:
   - aos

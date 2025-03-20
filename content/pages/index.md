@@ -47,9 +47,7 @@ Since going freelance in 2016, I've worked with BT Sport, the BBC, Amazon, Mozil
 
 === SECTION ===
 
-## My mission: one pint at a time
-
-Polarising social media, disillusionment, and the rise of remote work, among other factors, contribute to social isolation and loneliness.
+## My mission, one pint at a time
 
 The Internet is a powerful way to connect people who wouldn't otherwise meet. But if time on Zoom and social media isn't balanced with real world interaction – especially with people who don't look like us – our worldview gets smaller.
 

@@ -27,7 +27,7 @@ Get help navigating complex digital projects, from a tech expert who also speaks
 
 === BIO SECTION ===
 
-![Mark Steadman at a desk](img/mark-desk.png)
+![Mark Steadman at a desk](img/mark-desk.svg)
 
 === SECTION ===
 
@@ -43,7 +43,7 @@ Since going freelance in 2016, I've worked with BT Sport, the BBC, Amazon, Mozil
 
 === IMPACT SECTION ===
 
-![Glass and bottle of beer](img/beer.png)
+![Glass and bottle of beer](img/beer.svg)
 
 === SECTION ===
 

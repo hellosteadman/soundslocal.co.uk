@@ -171,7 +171,7 @@ body.frontpage {
     .bio-section {
         @include media-breakpoint-up('tablet') {
             p > img {
-                margin: 0 6rem 0 auto;
+                margin: 0 auto 0 -6rem;
             }
         }
     }

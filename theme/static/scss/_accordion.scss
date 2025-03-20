@@ -1,6 +1,6 @@
 .accordion {
     list-style-type: none;
-    margin: 0 0 2rem 0;
+    margin: 0 0 0 0;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -208,8 +208,10 @@
     }
 }
 
-@include media-breakpoint-up('tablet') {
-    .vertical-accordion-wrapper {
+.vertical-accordion-wrapper {
+    margin-bottom: 3rem;
+
+    @include media-breakpoint-up('tablet') {
         position: relative;
         width: 100%;
         height: calc(100vh - 5rem);

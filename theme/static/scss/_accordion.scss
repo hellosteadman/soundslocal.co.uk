@@ -53,8 +53,6 @@
                 opacity: 0;
                 z-index: 2;
                 order: 3;
-                font-size: 1.25rem;
-                font-weight: normal;
 
                 p:first-child {
                     margin-top: 0;
@@ -185,7 +183,6 @@
                         justify-content: center;
                         width: 0;
                         height: 100%;
-                        font-size: 1rem;
                         text-wrap: nowrap;
                         transition: opacity .3s ease;
                         transition-delay: .3s;
@@ -215,7 +212,7 @@
     .vertical-accordion-wrapper {
         position: relative;
         width: 100%;
-        height: calc(90vh - 5rem);
+        height: calc(100vh - 5rem);
         overflow-x: scroll;
     }
 }

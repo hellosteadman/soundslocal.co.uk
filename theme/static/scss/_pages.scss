@@ -1,41 +1,10 @@
 body.page {
-    &.hero-has-banner {
-        .main-menu {
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            z-index: 4;
-
-            a.site-brand {
-                color: #fff !important;
-
-                svg {
-                    path {
-                        fill: #fff;
-                    }
-                }
-            }
-
-            * {
-                --budgie-navbar-color: #fff;
-                --budgie-nav-link-color: #fff;
-                --budgie-nav-link-hover-color: #fff;
-            }
-        }
-
-        .hero {
-            padding: 5rem 0 3rem 0;
-        }
-    }
-
     .hero {
         padding: 3rem 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        text-align: center;
         text-wrap: balance;
 
         h1 {
@@ -118,7 +87,7 @@ body.page {
 
         section.body {
             .section {
-                margin: 0 auto 3rem;
+                margin: 0 0 3rem;
                 font-size: 1.25rem;
                 font-weight: normal;
 
@@ -141,10 +110,6 @@ body.page {
                     + h2, + h3 {
                         margin-top: 2rem;
                     }
-                }
-
-                &.cta-section {
-                    text-align: center;
                 }
 
                 &.skill-section, &.offer-section {

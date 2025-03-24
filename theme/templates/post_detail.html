@@ -4,7 +4,7 @@
 
 {% block body %}
     <article>
-        <header class="hero">
+        <header class="background-white hero{% if object.featured_image %} padding-bottom-0{% endif %}">
             <div class="container">
                 <p class="margin-0 text-nowrap" data-aos="fade-up">
                     {% if object.published %}
@@ -33,13 +33,13 @@
                 {% endif %}
 
                 {% if object.featured_image %}
-                    <img alt="" role="presentation" src="{{ object.featured_image.url() }}" class="featured img-fluid">
+                    <img alt="" role="presentation" src="{{ object.featured_image.url() }}" class="featured shadow-lg rounded-3 margin-bottom-n5 img-fluid">
                 {% endif %}
             </div>
         </header>
 
-        <div class="container">
-            <section class="body show-flex flex-column justify-content-center">{{ object.body }}</section>
+        <div class="container{% if object.featured_image %} padding-top-5{% endif %}">
+            <section class="body{% if object.featured_image %} margin-top-5{% endif %}">{{ object.body }}</section>
         </div>
     </article>
 {% endblock body %}

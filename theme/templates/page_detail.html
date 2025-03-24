@@ -4,25 +4,31 @@
 
 {% block body %}
     <article>
-        <header class="hero{% if object.banner %} has-banner overlay margin-bottom-3 margin-bottom-tablet-5{% endif %}">
+        <header class="hero {% if object.banner %}has-banner overlay margin-bottom-3 margin-bottom-tablet-5{% else %}margin-bottom-3{% endif %} background-white">
             {% if object.banner %}
                 <div class="banner-wrap"><img alt="" role="presentation" src="{{ object.banner.url() }}" class="banner margin-bottom-3"></div>
             {% endif %}
 
             <div class="container">
-                <h1 class="display-1 font-weight-bolder" data-aos="fade-up">{{ object.heading }}</h1>
+                <div class="grid align-items-center">
+                    <div class="cell-tablet-8">
+                        <h1 class="display-1 font-weight-bolder" data-aos="fade-up">{{ object.heading }}</h1>
 
-                {% if object.lede %}
-                    <p class="display-3 font-weight-normal" data-aos="fade-up" data-aos-delay="300">{{ object.lede }}</p>
-                {% endif %}
+                        {% if object.lede %}
+                            <p class="display-3 font-weight-normal" data-aos="fade-up" data-aos-delay="300">{{ object.lede }}</p>
+                        {% endif %}
 
-                {% if object.cta %}
-                    <div data-aos="fade-up" data-aos-delay="{% if object.lede %}600{% else %}300{% endif %}">{{ object.cta }}</div>
-                {% endif %}
+                        {% if object.cta %}
+                            <div data-aos="fade-up" data-aos-delay="{% if object.lede %}600{% else %}300{% endif %}">{{ object.cta }}</div>
+                        {% endif %}
+                    </div>
 
-                {% if object.featured_image %}
-                    <img alt="" role="presentation" src="{{ object.featured_image.url() }}" class="featured img-fluid">
-                {% endif %}
+                    {% if object.featured_image %}
+                        <div class="cell-tablet-4 margin-top-4 margin-top-tablet-0">
+                            <img alt="" role="presentation" src="{{ object.featured_image.url() }}" class="featured img-fluid">
+                        </div>
+                    {% endif %}
+                </div>
             </div>
         </header>
 

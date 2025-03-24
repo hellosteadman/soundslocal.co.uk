@@ -1,44 +1,11 @@
 body.frontpage {
-    background: #375639;
-    color: $light;
-
-    .main-menu {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 4;
-
-        svg path {
-            fill: #fff;
-        }
-
-        * {
-            --budgie-navbar-color: #fff;
-            --budgie-nav-link-color: #fff;
-            --budgie-nav-link-hover-color: #fff;
-        }
-    }
-
     .hero {
         padding: 5rem 0 3rem 0;
-
-        &:after {
-            display: block;
-            position: absolute;
-            top: 25%;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(0, #375639 0%, #37563900 100%);
-            content: ' ';
-            z-index: 2;
-        }
     }
 
     p.lede {
         @include media-breakpoint-up('laptop') {
-            margin-left: auto;
+            margin-left: 0;
             margin-right: auto;
             max-width: 60vw;
             text-wrap: balance;
@@ -50,12 +17,12 @@ body.frontpage {
 
         @include media-breakpoint-up('laptop') {
             margin: 0 auto;
-            max-width: 70vw;
+            max-width: 90vw;
         }
     }
 
     .features-cell {
-        margin: -3rem 0 6rem !important;
+        margin: 3rem 0 !important;
         position: relative;
         z-index: 4;
 
@@ -77,7 +44,7 @@ body.frontpage {
             flex-direction: column;
             background: $feature-bg;
             border-radius: $border-radius-sm;
-            box-shadow: 0 .6rem .6rem #00000044;
+            box-shadow: 0 .6rem 2rem #00000022;
             position: relative;
             overflow: hidden;
             text-wrap: balance;
@@ -86,7 +53,6 @@ body.frontpage {
         h2, h3, p {
             position: relative;
             z-index: 2;
-            text-align: center;
         }
 
         h2, h3 {
@@ -94,6 +60,10 @@ body.frontpage {
             font-weight: $font-weight-bolder;
             letter-spacing: -.05rem;
             color: $accent;
+
+            a {
+                color: $accent;
+            }
         }
 
         p {
@@ -251,10 +221,11 @@ body.frontpage {
             h2, h3 {
                 font-size: 1.25rem;
                 font-weight: $font-weight-bolder;
+                color: $accent;
 
                 a {
                     text-decoration: none;
-                    color: $white;
+                    color: $accent;
                 }
             }
 

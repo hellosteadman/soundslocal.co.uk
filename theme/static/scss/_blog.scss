@@ -4,8 +4,6 @@ body.post {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        text-align: center;
         text-wrap: balance;
 
         h1 {
@@ -22,7 +20,7 @@ body.post {
         position: relative;
 
         section.body {
-            margin: 0 auto 3rem;
+            margin: 0 0 3rem;
             font-size: 1.25rem;
             font-weight: normal;
 

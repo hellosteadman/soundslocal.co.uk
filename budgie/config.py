@@ -119,7 +119,7 @@ class Configuration(object):
                     settings_dict[key.upper()] = value
 
                 if any(plugin_settings):
-                    setattr(self, basename.upper(), plugin_settings)
+                    setattr(self, basename.upper(), settings_dict)
 
             for key in settings.keys():
                 raise ConfigError('Unrecognised setting: \'%s\'.' % key)

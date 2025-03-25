@@ -86,6 +86,25 @@ class Configuration(object):
 
                 self.MENUS.update(menus)
 
+            for plugin in (
+                'budgie.content.pages',
+                'budgie.content.blog'
+            ):
+                basename = plugin.split('.')[-1]
+                plugin_settings = settings.pop(basename.lower(), {})
+
+                if not isinstance(plugin_settings, dict):
+                    raise ConfigError(
+                        '%s must be an object.' % basename.lower()
+                    )
+
+                settings_dict = {}
+                for key, value in plugin_settings.items():
+                    settings_dict[key.upper()] = value
+
+                if any(plugin_settings):
+                    setattr(self, basename.upper(), plugin_settings)
+
             for key in settings.keys():
                 raise ConfigError('Unrecognised setting: \'%s\'.' % key)
 

@@ -24,8 +24,8 @@ class PostListView(ListView):
     def get_render_context(self):
         return {
             **super().get_render_context(),
-            'BLOG_HEADING': settings.BLOG_HEADING,
-            'BLOG_DESCRIPTION': settings.BLOG_DESCRIPTION
+            'BLOG_HEADING': settings.BLOG['HEADING'],
+            'BLOG_DESCRIPTION': settings.BLOG['DESCRIPTION']
         }
 
 
@@ -68,8 +68,8 @@ def build_posts():
 
     template = Template(['post_list.html'])
     context = {
-        'BLOG_HEADING': settings.BLOG_HEADING,
-        'BLOG_DESCRIPTION': settings.BLOG_DESCRIPTION,
+        'BLOG_HEADING': settings.BLOG['HEADING'],
+        'BLOG_DESCRIPTION': settings.BLOG['DESCRIPTION'],
         'object_list': object_list,
         'request': Request('/blog/')
     }

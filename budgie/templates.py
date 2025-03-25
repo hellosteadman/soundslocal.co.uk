@@ -8,8 +8,8 @@ from jinja2 import (
 )
 
 from jinja2.ext import Extension as ExtensionBase
-from . import settings
 from .app import app
+from .config import settings
 import os
 
 

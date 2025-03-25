@@ -1,6 +1,6 @@
 from glob import glob
-from . import settings
 from .app import app
+from .config import settings
 from .db import Comparer
 from .exceptions import NotFoundError, ContentDefinitionError
 import os

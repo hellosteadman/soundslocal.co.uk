@@ -1,6 +1,6 @@
 from shutil import rmtree
-from . import settings
 from .app import app
+from .config import settings
 import os
 
 

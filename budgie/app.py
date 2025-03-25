@@ -2,7 +2,7 @@ from collections import defaultdict
 from importlib import import_module
 from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
-from . import settings
+from .config import settings
 from .exceptions import ConfigError, NotFoundError
 import os
 

@@ -11,6 +11,7 @@ budgie_plugins:
   - budgie.contrib.oembed
   - budgie.contrib.calendly
   - budgie.contrib.plausible
+  - budgie.contrib.mailerlite
 
 frontend_packages:
   - aos
@@ -32,3 +33,6 @@ menus:
       text: Projects
     - path: /blog/
       text: Blog
+
+mailerlite:
+  account_id: '1408774'

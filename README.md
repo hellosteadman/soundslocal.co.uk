@@ -152,6 +152,10 @@ Currently, grids can't be nested.
 This plugin replaces `:icon:` syntax with an `<i>` element. It's assumed that Bootstrap Icons is the library, and anything in-between the colons is added to the class list, so `:emoji-smile:` becomes `<i class="bi bi-emoji-smile"></i>
 `.
 
+### `budgie.contrib.mailerlite`
+
+Injects JS tags to enable MailerLite form support.
+
 ### `budgie.contrib.markdown`
 
 Provides a `markdown` template filter. This should definitely be included in `settings.yaml`. This is automatically activated.

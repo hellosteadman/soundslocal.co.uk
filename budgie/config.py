@@ -39,6 +39,22 @@ class Configuration(object):
                 sorted(set(self.PLUGINS + plugins))
             )
 
+            for plugin in plugins:
+                basename = plugin.split('.')[-1]
+                plugin_settings = settings.pop(basename.lower(), {})
+
+                if not isinstance(plugin_settings, dict):
+                    raise ConfigError(
+                        '%s must be an object.' % basename.lower()
+                    )
+
+                settings_dict = {}
+                for key, value in plugin_settings.items():
+                    settings_dict[key.upper()] = value
+
+                if any(settings_dict):
+                    setattr(self, basename.upper(), settings_dict)
+
             packages = settings.pop('frontend_packages', [])
             self.FRONTEND_PACKAGES = list(
                 sorted(set(self.FRONTEND_PACKAGES + packages))

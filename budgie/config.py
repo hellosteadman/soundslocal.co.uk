@@ -23,6 +23,8 @@ class Configuration(object):
             ]
         }
 
+        self.TIMEZONE = 'Europe/London'
+
         filename = os.path.join(self.BASE_DIR, 'settings.yaml')
         if not os.path.exists(filename):
             filename = os.path.join(self.BASE_DIR, 'settings.yml')

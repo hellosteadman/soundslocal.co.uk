@@ -1,8 +1,8 @@
-seo_title: Website developer, Birmingham – Digital for social enterprise
-title: Websites
-featured_image: img/websites-feature.png
-lede: Your website is your organisation's online identity, and it sets the tone for what working with you feels like.
-cta: [Let's get to work](https://calendly.com/hellosteadman/chat)
+seo_title: "Website developer, Birmingham – Digital for social enterprise"
+title: "Websites"
+featured_image: "img/websites-feature.png"
+lede: "Your website is your organisation's online identity, and it sets the tone for what working with you feels like."
+cta: "[Let's get to work](https://calendly.com/hellosteadman/chat)"
 
 # Build a home on land you own.
 

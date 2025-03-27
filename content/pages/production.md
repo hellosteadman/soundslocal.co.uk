@@ -1,8 +1,8 @@
-seo_title: Podcast & YouTube producer, Birmingham – Digital for social enterprise
-title: Podcast & video
-featured_image: img/production-feature.png
-lede: Build affinity and trust with your stakeholders by creating compelling long-form content.
-cta: [Let's get to work](https://calendly.com/hellosteadman/chat)
+seo_title: "Podcast & YouTube producer, Birmingham – Digital for social enterprise"
+title: "Podcast & video"
+featured_image: "img/production-feature.png"
+lede: "Build affinity and trust with your stakeholders by creating compelling long-form content."
+cta: "[Let's get to work](https://calendly.com/hellosteadman/chat)"
 
 # Your story, in your own words.
 

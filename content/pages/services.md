@@ -1,4 +1,4 @@
-lede: If you're looking for a new website, a new way to communicate, or someone who can help navigate the digital world, I'm here to help.
+lede: "If you're looking for a new website, a new way to communicate, or someone who can help navigate the digital world, I'm here to help."
 
 # Here's what I offer
 

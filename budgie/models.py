@@ -1,10 +1,12 @@
 from glob import glob
+from io import StringIO
 from .app import app
 from .config import settings
 from .db import Comparer
 from .exceptions import NotFoundError, ContentDefinitionError
 import os
 import re
+import yaml
 
 
 META_LINE_EX = re.compile(r'^(\w+): (.+)$')
@@ -96,26 +98,13 @@ class ModelBase(object):
             for prop, default_value in schema.items():
                 setattr(self, prop, None)
 
+            meta_lines = []
+
             with open(filename, 'r') as f:
                 for line in f.readlines():
                     if not in_content:
-                        if match := META_LINE_EX.match(line):
-                            key, value = match.groups()
-                            key = key.lower().strip()
-                            value = value.strip()
-
-                            if key in schema:
-                                transformed = app.transform(
-                                    'article_property',
-                                    value,
-                                    prop=key
-                                )
-
-                                setattr(self, key, transformed)
-                            else:
-                                raise ContentDefinitionError(
-                                    'Invalid property: \'%s\'' % key
-                                )
+                        if META_LINE_EX.match(line):
+                            meta_lines.append(line)
                         else:
                             in_content = True
 
@@ -128,6 +117,26 @@ class ModelBase(object):
                             continue
 
                         body += line
+
+            if any(meta_lines):
+                meta_stream = StringIO(''.join(meta_lines))
+                meta = yaml.load(meta_stream, yaml.SafeLoader)
+
+                for key, value in meta.items():
+                    key = key.lower()
+
+                    if key not in schema:
+                        raise ContentDefinitionError(
+                            'Invalid property: \'%s\'' % key
+                        )
+
+                    transformed = app.transform(
+                        'article_property',
+                        value,
+                        prop=key
+                    )
+
+                    setattr(self, key, transformed)                        
 
             if not self.slug:
                 self.slug = os.path.splitext(

@@ -3,7 +3,7 @@ from budgie.models import ModelBase, Collection
 from budgie.request import Request
 from budgie.templates import Template
 from budgie.views import ListView, DetailView
-from datetime import datetime
+from datetime import datetime, date
 from dateutil.parser import parse as parse_date
 import os
 
@@ -97,4 +97,18 @@ def transform_tags(value, prop):
 
 @app.transformer('article_property', prop=('published'))
 def transform_published(value, prop):
-    return parse_date(value)
+    if isinstance(value, str):
+        value = parse_date(value)
+
+    if isinstance(value, date) and not isinstance(value, datetime):
+        value = datetime(
+            value.year,
+            value.month,
+            value.day,
+            0,
+            0,
+            0,
+            0
+        )
+
+    return value

@@ -1,4 +1,4 @@
-lede: This is only just the first stage of our intent to put digital profit back into our local community.
+lede: "This is only just the first stage of our intent to put digital profit back into our local community."
 
 # We've got big plans
 

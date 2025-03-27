@@ -1,8 +1,8 @@
-seo_title: Digital training and consulting, Birmingham – Digital for social enterprise
-title: Technical consulting
-featured_image: img/consulting-feature.png
-lede: Navigate technical projects with a trusted advisor who can translate tech jargon into plain English.
-cta: [Let's get to work](https://calendly.com/hellosteadman/chat)
+seo_title: "Digital training and consulting, Birmingham – Digital for social enterprise"
+title: "Technical consulting"
+featured_image: "img/consulting-feature.png"
+lede: "Navigate technical projects with a trusted advisor who can translate tech jargon into plain English."
+cta: "[Let's get to work](https://calendly.com/hellosteadman/chat)"
 
 # Your tech-to-human translator.
 

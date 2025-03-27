@@ -1,5 +1,5 @@
-seo_title: Web design for social enterprises in Birmingham
-lede: Sounds Local provides hassle-free digital services to good causes and puts its profits into projects that connect people in-person.
+seo_title: "Web design for social enterprises in Birmingham"
+lede: "Sounds Local provides hassle-free digital services to good causes and puts its profits into projects that connect people in-person."
 
 # Digital support for small teams that make a big difference.
 

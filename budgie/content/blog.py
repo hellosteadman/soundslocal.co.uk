@@ -2,6 +2,7 @@ from budgie import app, settings
 from budgie.models import ModelBase, Collection
 from budgie.request import Request
 from budgie.templates import Template
+from budgie.utils import now
 from budgie.views import ListView, DetailView
 from datetime import datetime, date
 from dateutil.parser import parse as parse_date
@@ -19,7 +20,7 @@ class PostListView(ListView):
 
     def get_query_args(self):
         return dict(
-            published__lte=datetime.now()
+            published__lte=now()
         )
 
     def get_render_context(self):

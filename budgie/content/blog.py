@@ -5,6 +5,7 @@ from budgie.templates import Template
 from budgie.views import ListView, DetailView
 from datetime import datetime, date
 from dateutil.parser import parse as parse_date
+from pytz import timezone
 import os
 
 
@@ -108,7 +109,8 @@ def transform_published(value, prop):
             0,
             0,
             0,
-            0
+            0,
+            tzinfo=timezone(settings.TIMEZONE)
         )
 
     return value

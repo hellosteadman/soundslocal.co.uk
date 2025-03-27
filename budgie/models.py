@@ -87,62 +87,73 @@ class Collection(object):
 
 class ModelBase(object):
     def __init__(self, collection, filename):
-        in_content = False
-        body = ''
         schema = app.transform('article_schema', dict(**SCHEMA))
 
-        for prop, default_value in schema.items():
-            setattr(self, prop, None)
+        def parse():
+            in_content = False
+            body = ''
 
-        with open(filename, 'r') as f:
-            for line in f.readlines():
-                if not in_content:
-                    if match := META_LINE_EX.match(line):
-                        key, value = match.groups()
-                        key = key.lower().strip()
-                        value = value.strip()
+            for prop, default_value in schema.items():
+                setattr(self, prop, None)
 
-                        if key in schema:
-                            transformed = app.transform(
-                                'article_property',
-                                value,
-                                prop=key
-                            )
+            with open(filename, 'r') as f:
+                for line in f.readlines():
+                    if not in_content:
+                        if match := META_LINE_EX.match(line):
+                            key, value = match.groups()
+                            key = key.lower().strip()
+                            value = value.strip()
 
-                            setattr(self, key, transformed)
+                            if key in schema:
+                                transformed = app.transform(
+                                    'article_property',
+                                    value,
+                                    prop=key
+                                )
+
+                                setattr(self, key, transformed)
+                            else:
+                                raise ContentDefinitionError(
+                                    'Invalid property: \'%s\'' % key
+                                )
                         else:
-                            raise ContentDefinitionError(
-                                'Invalid property: \'%s\'' % key
-                            )
-                    else:
-                        in_content = True
+                            in_content = True
 
-                if in_content:
-                    if not line.strip() and not body:
-                        continue
+                    if in_content:
+                        if not line.strip() and not body:
+                            continue
 
-                    if line.startswith('# ') and not body:
-                        self.heading = line[1:].strip()
-                        continue
+                        if line.startswith('# ') and not body:
+                            self.heading = line[1:].strip()
+                            continue
 
-                    body += line
+                        body += line
 
-        if not self.slug:
-            self.slug = os.path.splitext(
-                os.path.split(filename)[-1]
-            )[0]
+            if not self.slug:
+                self.slug = os.path.splitext(
+                    os.path.split(filename)[-1]
+                )[0]
 
-        if not self.title:
-            if self.heading:
-                self.title = self.heading
-            else:
-                self.title = self.slug.replace('-', ' ').capitalize()
+            if not self.title:
+                if self.heading:
+                    self.title = self.heading
+                else:
+                    self.title = self.slug.replace('-', ' ').capitalize()
 
-        if not self.heading:
-            self.heading = self.title
+            if not self.heading:
+                self.heading = self.title
 
-        self.body = app.transform('article_body', body)
-        self.collection = collection
+            self.body = app.transform('article_body', body)
+            self.collection = collection
+
+        @app.on('reload')
+        def clear(files_changed=[]):
+            basename = filename[len(settings.CONTENT_DIR):]
+            for fn in files_changed:
+                if fn == basename:
+                    parse()
+
+        parse()
 
     def get_absolute_url(self):
         return self.collection.build_url(self.slug)

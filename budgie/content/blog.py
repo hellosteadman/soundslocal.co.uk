@@ -40,7 +40,9 @@ class PostDetailView(DetailView):
 def build_posts():
     object_list = []
 
-    for obj in Post.objects.all():
+    for obj in Post.objects.filter(
+        published__lte=now()
+    ):
         slug = obj.slug
         template_name = ['post_detail.html']
         template = Template(template_name)

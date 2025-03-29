@@ -1,11 +1,11 @@
 from budgie import app
 import re
 
-START_SECTION_EX = re.compile(r'^===([^=]+)? *SECTION *=== *$')
+START_SECTION_EX = re.compile(r'^=== (WRAPPED )?([^=]+)? *SECTION *=== *$')
 END_SECTION_EX = re.compile(r'^=== *END([^=]+)? *SECTION *=== *$')
 
 
-def render_section(lines, slug=None):
+def render_section(lines, slug=None, wrapped=False):
     classes = ['section']
     if slug:
         classes.append(f'{slug}-section')
@@ -20,6 +20,13 @@ def render_section(lines, slug=None):
     text = '\n'.join(lines)
     html += app.transform('article_body', text)
     html.append('</div>')
+
+    if wrapped:
+        return '<div class="%swrapper">%s</div>' % (
+            slug and ('%s-' % slug) or '',
+            ''.join(html)
+        )
+
     return ''.join(html)
 
 
@@ -55,9 +62,11 @@ def section_transformer(value):
             continue
 
         if match := START_SECTION_EX.match(stripped_line):
-            groups = match.groups()
+            groups = match.groups()[1:]
+            wrapped = not not match.groups()[0]
             section = {
                 'slug': groups[0].lower().strip() if groups[0] else None,
+                'wrapped': wrapped,
                 'lines': []
             }
 

@@ -3,6 +3,8 @@ lede: "Sounds Local provides hassle-free digital services to good causes and put
 
 # Digital support for small teams that make a big difference.
 
+=== FEATURES SECTION ===
+
 === GRID OF 3 FEATURES ===
 
 ### [Website design & build](/websites/)
@@ -25,7 +27,9 @@ Get help navigating complex digital projects, from a tech expert who also speaks
 
 === END GRID OF 3 FEATURES ===
 
-=== BIO SECTION ===
+=== END FEATURES SECTION ===
+
+=== WRAPPED BIO SECTION ===
 
 ![Mark Steadman at a desk](img/mark-desk.svg)
 
@@ -57,6 +61,8 @@ Sounds Local is a community interest company, meaning the profit it generates is
 
 === END IMPACT SECTION ===
 
+=== PROJECTS SECTION ===
+
 === GRID OF 3 PROJECTS ===
 
 ### [C90 Community Chorus](/c90/)
@@ -83,6 +89,8 @@ Anyone looking to gather people together to discuss an idea that'll improve live
 More info coming soon
 
 === END GRID OF 3 PROJECTS ===
+
+=== END PROJECTS SECTION ===
 
 === CTA SECTION ===
 

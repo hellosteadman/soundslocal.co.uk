@@ -1,6 +1,6 @@
 body.frontpage {
-    .hero {
-        padding: 5rem 0 3rem 0;
+    .big-hero {
+        min-height: 50vh;
     }
 
     p.lede {
@@ -12,17 +12,8 @@ body.frontpage {
         }
     }
 
-    .features-grid {
-        margin: 0 1rem;
-
-        @include media-breakpoint-up('laptop') {
-            margin: 0 auto;
-            max-width: 90vw;
-        }
-    }
-
     .features-cell {
-        margin: 3rem 0 !important;
+        margin: 3rem 0 0 !important;
         position: relative;
         z-index: 4;
 
@@ -44,7 +35,6 @@ body.frontpage {
             flex-direction: column;
             background: $feature-bg;
             border-radius: $border-radius-sm;
-            box-shadow: 0 .6rem 2rem #00000022;
             position: relative;
             overflow: hidden;
             text-wrap: balance;
@@ -76,15 +66,49 @@ body.frontpage {
         }
     }
 
-    .section {
+    .features-section,
+    .bio-section,
+    .impact-section,
+    .projects-section,
+    .cta-section {
+        position: relative;
+        z-index: 2;
+        @include make-container();
+
+        @each $breakpoint, $container-max-width in $container-max-widths {
+            @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+                $extend-breakpoint: true;
+
+                @each $name, $width in $grid-breakpoints {
+                    @if ($extend-breakpoint) {
+                        &#{breakpoint-infix($name, $grid-breakpoints)} {
+                            @extend %responsive-container-#{$breakpoint};
+                        }
+
+                        @if ($breakpoint == $name) {
+                            $extend-breakpoint: false;
+                        }
+                    }
+                }
+            }
+        }
+
         h2, h3 {
             font-weight: $font-weight-bolder;
             letter-spacing: -.05rem;
         }
     }
 
+    .bio-wrapper {
+        background: #fff;
+        position: relative;
+        margin-top: -10rem;
+        padding: 13rem 0 1rem;
+        z-index: 1;
+    }
+
     .bio-section, .impact-section {
-        margin: 3rem 1rem;
+        margin: 3rem auto;
         gap: 2rem;
 
         @include media-breakpoint-up('tablet') {
@@ -117,7 +141,6 @@ body.frontpage {
             .section {
                 flex: 0 0 60%;
                 order: 1;
-                padding: 0 6rem;
             }
 
             p > img {
@@ -138,14 +161,6 @@ body.frontpage {
         }
     }
 
-    .bio-section {
-        @include media-breakpoint-up('tablet') {
-            p > img {
-                margin: 0 auto 0 -6rem;
-            }
-        }
-    }
-
     .impact-section {
         margin-top: 5rem;
         margin-bottom: 5rem;
@@ -162,10 +177,6 @@ body.frontpage {
                 flex: 0 0 25%;
                 order: 1;
             }
-
-            p > img {
-                margin: 0 0 0 6rem;
-            }
         }
     }
 
@@ -180,13 +191,6 @@ body.frontpage {
     }
 
     .projects-grid {
-        margin: 0 1rem;
-
-        @include media-breakpoint-up('tablet') {
-            margin: 0 auto;
-            max-width: 80vw;
-        }
-
         * {
             --budgie-gutter-x: 2.5rem;
             --budgie-gutter-y: 2.5rem;

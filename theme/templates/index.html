@@ -2,19 +2,12 @@
 {% block body_classes %}frontpage page{% endblock %}
 
 {% block body %}
-    <div class="hero has-video overlay">
-        <div class="video">
-            <video poster="{% media 'img/home-banner.jpg' %}" autoplay muted loop playsinline>
-                <source type="video/mp4" src="{% media 'mov/home-banner.mp4' %}">
-            </video>
-        </div>
-
-        <div class="container position-relative z-3 text-white">
-            <h1 class="display-1 font-weight-bolder margin-bottom-2 margin-bottom-tablet-4" data-aos="fade-up">{{ object.heading }}</h1>
-
-            {% if object.lede %}
-                <p class="display-3 font-weight-normal margin-bottom-5 margin-bottom-tablet-0 lede" data-aos="fade-up" data-aos-delay="300">{{ object.lede }}</p>
-            {% endif %}
+    <div class="container">
+        <div class="big-hero show-flex align-items-center">
+            <div>
+                <p class="display-1 font-weight-bolder" data-aos="fade-up">{{ object.heading }}</p>
+                <p class="display-2 lede" data-aos="fade-up">{{ object.lede }}</p>
+            </div>
         </div>
     </div>
 

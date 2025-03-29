@@ -39,14 +39,20 @@
 
         <main class="margin-bottom-auto">{% block body %}{% endblock %}</main>
 
-        <footer class="background-white margin-top-4 margin-bottom-0 padding-y-4">
-            <div class="container">
-                <p>&copy; Sounds Local CIC – Company no 16322767</p>
-                <a href="https://directory.socialenterprise.org.uk/s/detail/001PK00000SObvxYAD" rel="external noreferrer" target="_blank">
-                    <img alt="Certified social enterprise – Business for good" src="{% static 'img/seuk-badge.png' %}" width="96">
-                </a>
-            </div>
-        </footer>
+        <div class="margin-bottom-0">
+            <svg height="98px" viewBox="0 0 2774 98" version="1.1" xmlns="http://www.w3.org/2000/svg" class="img-fluid show-block">
+                <path d="M0,0 C462.333333,65.3333333 924.666667,98 1387,98 C1849.33333,98 2311.66667,65.3333333 2774,0 L2774,98 L0,98 L0,0 Z" fill="#FFFFFF"></path>
+            </svg>
+
+            <footer class="background-white padding-y-4">
+                <div class="container">
+                    <p>&copy; Sounds Local CIC – Company no 16322767</p>
+                    <a href="https://directory.socialenterprise.org.uk/s/detail/001PK00000SObvxYAD" rel="external noreferrer" target="_blank">
+                        <img alt="Certified social enterprise – Business for good" src="{% static 'img/seuk-badge.png' %}" width="96">
+                    </a>
+                </div>
+            </footer>
+        </div>
 
         <script src="{% static 'js/start.js' %}"></script>
     </body>

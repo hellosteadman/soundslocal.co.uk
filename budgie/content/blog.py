@@ -1,4 +1,4 @@
-from budgie import app, settings
+from budgie import app, settings, build_page
 from budgie.models import ModelBase, Collection
 from budgie.request import Request
 from budgie.templates import Template
@@ -7,7 +7,6 @@ from budgie.views import ListView, DetailView
 from datetime import datetime, date
 from dateutil.parser import parse as parse_date
 from pytz import timezone
-import os
 
 
 class Post(ModelBase):
@@ -52,19 +51,7 @@ def build_posts():
         }
 
         html = template.render(context)
-        dirname = os.path.join(
-            settings.BUILD_DIR,
-            'blog',
-            obj.slug
-        )
-
-        os.makedirs(dirname, exist_ok=True)
-        filename = os.path.join(dirname, 'index.html')
-
-        with open(filename, 'w') as f:
-            f.write(html)
-            print('.', filename[len(settings.BUILD_DIR) + 1:])
-
+        build_page('blog/%s' % slug, html)
         object_list.append(obj)
 
     if not any(object_list):
@@ -79,12 +66,7 @@ def build_posts():
     }
 
     html = template.render(context)
-    dirname = os.path.join(settings.BUILD_DIR, 'blog')
-    filename = os.path.join(dirname, 'index.html')
-
-    with open(filename, 'w') as f:
-        f.write(html)
-        print('.', filename[len(settings.BUILD_DIR) + 1:])
+    build_page('blog/', html)
 
 
 @app.transformer('article_schema')

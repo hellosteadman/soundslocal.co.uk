@@ -92,6 +92,13 @@ class BudgieApp(object):
 
                     print('. 404.html')
 
+        self.pages = []
+
+        @self.on('built')
+        def on_built(path, filename):
+            print('.', os.path.join(path, 'index.html'))
+            self.pages.append(path)
+
     def tag(self, name: str = ''):
         def decorator(func):
             if name:

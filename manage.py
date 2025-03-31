@@ -25,7 +25,7 @@ def build(domain: str = None):
 
     budgie.app.start('build')
     click.echo('Building the static site...')
-    budgie.build()
+    budgie.build_site()
     click.echo('\nBuild complete.\n')
 
 

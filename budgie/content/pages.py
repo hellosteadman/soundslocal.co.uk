@@ -1,9 +1,8 @@
-from budgie import app, settings
+from budgie import app, build_page
 from budgie.models import ModelBase, Collection
 from budgie.request import Request
 from budgie.templates import Template
 from budgie.views import DetailView
-import os
 
 
 class Page(ModelBase):
@@ -43,16 +42,8 @@ def build_pages():
         html = template.render(context)
 
         if obj.slug == 'index':
-            filename = os.path.join(settings.BUILD_DIR, 'index.html')
+            dirname = ''
         else:
-            dirname = os.path.join(
-                settings.BUILD_DIR,
-                obj.slug
-            )
+            dirname = obj.slug
 
-            os.makedirs(dirname, exist_ok=True)
-            filename = os.path.join(dirname, 'index.html')
-
-        with open(filename, 'w') as f:
-            f.write(html)
-            print('.', filename[len(settings.BUILD_DIR) + 1:])
+        build_page(dirname, html)

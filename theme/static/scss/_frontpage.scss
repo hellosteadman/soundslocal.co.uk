@@ -1,6 +1,28 @@
 body.frontpage {
+    .big-hero-wrapper {
+        background: lighten($honey, 5);
+        position: relative;
+    }
+
     .big-hero {
-        min-height: 50vh;
+        @include media-breakpoint-up('laptop') {
+            > div {
+                width: 66%;
+            }
+
+            img.feature {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                height: calc(100% + 16px);
+            }
+        }
+
+        @include media-breakpoint-up('desktop') {
+            img.feature {
+                right: 10vw;
+            }
+        }
     }
 
     p.lede {
@@ -13,7 +35,6 @@ body.frontpage {
     }
 
     .features-cell {
-        margin: 3rem 0 0 !important;
         position: relative;
         z-index: 4;
 
@@ -48,7 +69,6 @@ body.frontpage {
         h2, h3 {
             font-size: 1.2rem;
             font-weight: $font-weight-bolder;
-            letter-spacing: -.05rem;
             color: $accent;
 
             a {
@@ -71,6 +91,7 @@ body.frontpage {
     .impact-section,
     .projects-section,
     .cta-section {
+        margin: 3rem 0;
         position: relative;
         z-index: 2;
         @include make-container();
@@ -96,14 +117,6 @@ body.frontpage {
         h2, h3 {
             font-weight: $font-weight-bolder;
         }
-    }
-
-    .bio-wrapper {
-        background: #fff;
-        position: relative;
-        margin-top: -10rem;
-        padding: 13rem 0 1rem;
-        z-index: 1;
     }
 
     .bio-section, .impact-section {
@@ -160,10 +173,13 @@ body.frontpage {
         }
     }
 
-    .impact-section {
-        margin-top: 5rem;
-        margin-bottom: 5rem;
+    .impact-wrapper {
+        background: $light;
+        padding: 3rem 0;
+        margin: 0;
+    }
 
+    .impact-section {
         @include media-breakpoint-up('tablet') {
             gap: 3rem;
 
@@ -179,13 +195,11 @@ body.frontpage {
         }
     }
 
-    .cta-section {
-        text-align: center;
+    .projects-section {
+        margin-top: -3rem;
 
         @include media-breakpoint-up('tablet') {
-            margin: 0 auto;
-            width: 60%;
-            padding: 2rem 0;
+            margin-top: -6rem;
         }
     }
 
@@ -258,10 +272,13 @@ body.frontpage {
 
     .cta-section {
         margin: 0 1rem;
+        text-align: center;
 
         @include media-breakpoint-up('tablet') {
-            margin: 0 auto;
+            width: 60%;
             max-width: 40vw;
+            padding: 2rem 0;
+            margin: 0 auto;
         }
     }
 }

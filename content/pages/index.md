@@ -1,7 +1,8 @@
 seo_title: "Web design for social enterprises in Birmingham"
-lede: "Sounds Local provides hassle-free digital services to good causes and puts its profits into projects that connect people in-person."
+lede: "Sounds Local provides hassle-free digital communications services to good causes and puts its profits into projects that connect people in-person."
+featured_image: img/mark.png
 
-# Digital support for small teams that make a big difference.
+# Digital comms for small teams that make a big difference.
 
 === FEATURES SECTION ===
 
@@ -13,9 +14,9 @@ Hand-crafted WordPress, Wagtail, Ghost, or custom websites designed and built to
 
 [Find out more :arrow-right-circle-fill:](/websites/)
 
-### [Digital content production](/production/)
+### [Digital production](/production/)
 
-Publish meetings in podcast or video form so members and stakeholders are kept in the loop.
+Keep stakeholders up-to-date with regular podcasts and engaging video.
 
 [Find out more :arrow-right-circle-fill:](/production/)
 
@@ -29,7 +30,7 @@ Get help navigating complex digital projects, from a tech expert who also speaks
 
 === END FEATURES SECTION ===
 
-=== WRAPPED BIO SECTION ===
+=== BIO SECTION ===
 
 ![Mark Steadman at a desk](img/mark-desk.svg)
 
@@ -45,7 +46,7 @@ Since going freelance in 2016, I've worked with BT Sport, the BBC, Amazon, Mozil
 
 === END BIO SECTION ===
 
-=== IMPACT SECTION ===
+=== WRAPPED IMPACT SECTION ===
 
 ![Glass and bottle of beer](img/beer.svg)
 

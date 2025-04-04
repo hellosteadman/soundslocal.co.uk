@@ -2,14 +2,20 @@
 {% block body_classes %}frontpage page{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="big-hero show-flex align-items-center">
-            <div>
-                <p class="display-1 font-weight-bolder" data-aos="fade-up">{{ object.heading }}</p>
-                <p class="display-2 lede" data-aos="fade-up">{{ object.lede }}</p>
+    <section class="big-hero-wrapper">
+        <div class="container margin-bottom-0">
+            <div class="big-hero padding-top-5">
+                {% if object.featured_image %}
+                    <img alt="Featured image" src="{{ object.featured_image.url() }}" class="feature show-none show-laptop-block">
+                {% endif %}
+
+                <div>
+                    <p class="display-1 font-weight-bolder" data-aos="fade-up">{{ object.heading }}</p>
+                    <p class="display-2 lede padding-bottom-5" data-aos="fade-up">{{ object.lede }}</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     {{ object.body }}
 {% endblock body %}

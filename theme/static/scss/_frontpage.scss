@@ -7,7 +7,7 @@ body.frontpage {
     .big-hero {
         @include media-breakpoint-up('laptop') {
             > div {
-                width: 66%;
+                width: 50%;
             }
 
             img.feature {
@@ -19,6 +19,10 @@ body.frontpage {
         }
 
         @include media-breakpoint-up('desktop') {
+            > div {
+                width: 55%;
+            }
+
             img.feature {
                 right: 10vw;
             }

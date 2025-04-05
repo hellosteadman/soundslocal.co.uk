@@ -14,11 +14,11 @@ Hand-crafted WordPress, Wagtail, Ghost, or custom websites designed and built to
 
 [Find out more :arrow-right-circle-fill:](/websites/)
 
-### [Digital production](/production/)
+### [Podcast production](/podcasts/)
 
-Keep stakeholders up-to-date with regular podcasts, and entertain your audience with engaging short-form video.
+Keep stakeholders up-to-date with regular podcasts, tell your story, and connect your community.
 
-[Find out more :arrow-right-circle-fill:](/production/)
+[Find out more :arrow-right-circle-fill:](/podcasts/)
 
 ### [Technical consulting](/consulting/)
 

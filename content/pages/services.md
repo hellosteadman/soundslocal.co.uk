@@ -16,13 +16,13 @@ Hand-crafted WordPress, Wagtail, Ghost, or custom websites designed and built to
 
 === OFFER SECTION ===
 
-## [Digital content production](/production/)
+## [Podcast production](/podcasts/)
 
 ![Production](img/services-production.jpg)
 
 Publish meetings in podcast or video form so members and stakeholders are kept in the loop.
 
-[Find out more :arrow-right-circle-fill:](/production/)
+[Find out more :arrow-right-circle-fill:](/podcasts/)
 
 === END OFFER SECTION ===
 

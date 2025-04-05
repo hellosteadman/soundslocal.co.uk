@@ -32,7 +32,7 @@ Get help navigating complex digital projects, from a tech expert who also speaks
 
 === BIO SECTION ===
 
-![Mark Steadman at a desk](img/mark-desk.svg)
+![Mark Steadman at a desk](img/cat-desk.svg)
 
 === SECTION ===
 
